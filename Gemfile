@@ -6,6 +6,8 @@ gem "rails", "~> 7.1.3", ">= 7.1.3.2"
 
 gem "figaro"
 
+gem "faker"
+
 gem "rails-i18n"
 
 gem "config"

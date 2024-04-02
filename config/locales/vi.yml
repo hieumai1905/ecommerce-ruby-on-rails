@@ -5,6 +5,7 @@ vi:
   pages:
     home:
       title: "Trang chủ"
+      welcome: "Chào mừng đến với trang web của chúng tôi"
     shop:
       title: "Cửa hàng"
     footer:

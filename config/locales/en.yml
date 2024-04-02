@@ -5,6 +5,7 @@ en:
   pages:
     home:
       title: "Home"
+      welcome: "Welcome to our website"
     shop:
       title: "Shop"
     footer:

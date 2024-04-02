@@ -1,0 +1,22 @@
+<!-- Hero Section Begin -->
+<section class="hero">
+  <div id="demo" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <%= render partial: "banner_item", locals: { banner_item: @default_banner } %>
+      </div>
+      <% @banner.each do |banner_item| %>
+        <div class="carousel-item">
+          <%= render partial: "banner_item", locals: { banner_item: banner_item } %>
+        </div>
+      <% end %>
+    </div>
+    <a class="carousel-control-prev" href="#demo" data-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </a>
+    <a class="carousel-control-next" href="#demo" data-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </a>
+  </div>
+</section>
+<!-- Hero Section End -->

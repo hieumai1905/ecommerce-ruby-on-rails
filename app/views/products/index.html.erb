@@ -1,0 +1,29 @@
+<%= render "shared/breadcrumb" %>
+<!-- Shop Section Begin -->
+<section class="shop spad">
+  <div class="container">
+    <div class="row">
+      <%= render "sidebar_shop" %>
+      <div class="col-lg-9">
+        <div class="shop__product__option">
+          <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6">
+              <div class="shop__product__option__left">
+                <p><%= t("pages.product.show_title") %> 1– <%= @products.count %> <%= t("pages.product.result") %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <%= render @products || t("pages.product.empty")%>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <%== pagy_bootstrap_nav @pagy %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Shop Section End -->

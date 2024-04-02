@@ -1,1 +1,30 @@
 vi:
+  language:
+    english: "Tiếng Anh"
+    vietnamese: "Tiếng Việt"
+  pages:
+    home:
+      title: "Trang chủ"
+    shop:
+      title: "Cửa hàng"
+    footer:
+      copy_right: "© 2024 Ecommerce. Tất cả các quyền được bảo lưu."
+    product:
+      title: "Sản phẩm"
+      show_title: "Hiển thị"
+      result: "kết quả"
+      empty: "Không có sản phẩm nào"
+    cart:
+      title: "Giỏ hàng"
+      add: "Thêm vào giỏ hàng"
+    header:
+      login: "Đăng nhập"
+  filter:
+    product:
+      category: "Danh mục"
+      brand: "Thương hiệu"
+      price: "Lọc giá"
+      size: "Kích cỡ"
+      color: "Màu sắc"
+      tags: "Nhãn"
+      search: "Tìm kiếm sản phẩm"

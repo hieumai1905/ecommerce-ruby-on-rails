@@ -1,1 +1,30 @@
 en:
+  language:
+    english: "English"
+    vietnamese: "Vietnamese"
+  pages:
+    home:
+      title: "Home"
+    shop:
+      title: "Shop"
+    footer:
+      copy_right: "© 2024 Ecommerce. All Rights Reserved."
+    product:
+      title: "Product"
+      show_title: "Showing"
+      result: "result"
+      empty: "Product is empty"
+    cart:
+      title: "Cart"
+      add: "Add to cart"
+    header:
+      login: "Login"
+  filter:
+    product:
+      category: "Categories"
+      brand: "Brands"
+      price: "Filter price"
+      size: "Sizes"
+      color: "Colors"
+      tags: "Tags"
+      search: "Search products"

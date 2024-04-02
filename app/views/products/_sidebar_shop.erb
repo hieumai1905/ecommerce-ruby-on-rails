@@ -1,0 +1,97 @@
+<div class="col-lg-3">
+  <div class="shop__sidebar">
+    <div class="shop__sidebar__search">
+        <p> <%= t("filter.product.search") %></p>
+      <form action="#">
+        <input type="text" placeholder="...">
+        <button type="submit"><span class="icon_search"></span></button>
+      </form>
+    </div>
+    <div class="shop__sidebar__accordion">
+      <div class="accordion" id="accordionExample">
+        <div class="card">
+          <div class="card-heading">
+            <a data-toggle="collapse" data-target="#collapseOne">
+              <%= t("filter.product.category") %>
+            </a>
+          </div>
+          <div id="collapseOne" class="collapse show" data-parent="#accordionExample">
+            <div class="card-body">
+              <div class="shop__sidebar__categories">
+                <ul class="nice-scroll">
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-heading">
+            <a data-toggle="collapse" data-target="#collapseTwo">
+              <%= t("filter.product.brand") %>
+            </a>
+          </div>
+          <div id="collapseTwo" class="collapse show" data-parent="#accordionExample">
+            <div class="card-body">
+              <div class="shop__sidebar__brand">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-heading">
+            <a data-toggle="collapse" data-target="#collapseThree">
+              <%= t("filter.product.price") %>
+            </a>
+          </div>
+          <div id="collapseThree" class="collapse show" data-parent="#accordionExample">
+            <div class="card-body">
+              <div class="shop__sidebar__price">
+                <ul>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-heading">
+            <a data-toggle="collapse" data-target="#collapseFour">
+              <%= t("filter.product.size") %>
+            </a>
+          </div>
+          <div id="collapseFour" class="collapse show" data-parent="#accordionExample">
+            <div class="card-body">
+              <div class="shop__sidebar__size">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-heading">
+            <a data-toggle="collapse" data-target="#collapseFive">
+              <%= t("filter.product.color") %>
+            </a>
+          </div>
+          <div id="collapseFive" class="collapse show" data-parent="#accordionExample">
+            <div class="card-body">
+              <div class="shop__sidebar__color">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-heading">
+            <a data-toggle="collapse" data-target="#collapseSix">
+              <%= t("filter.product.tags") %>
+            </a>
+          </div>
+          <div id="collapseSix" class="collapse show" data-parent="#accordionExample">
+            <div class="card-body">
+              <div class="shop__sidebar__tags">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

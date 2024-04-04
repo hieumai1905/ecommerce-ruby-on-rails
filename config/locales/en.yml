@@ -19,11 +19,19 @@ en:
       detail: "Product Details"
       size: "Size"
       color: "Color"
+    login:
+      title: "Login"
+      email_label: "Email"
+      password_label: "Password"
+      remember_me_label: "Remember me on this device"
+      submit_button: "Login"
     cart:
       title: "Cart"
       add: "Add to cart"
     header:
       login: "Login"
+      logout: "Logout"
+      admin: "Admin page"
   filter:
     product:
       category: "Categories"
@@ -33,3 +41,7 @@ en:
       color: "Colors"
       tags: "Tags"
       search: "Search products"
+  errors:
+    login:
+      invalid: "Invalid email or password"
+      not_active: "Your account is not active"

@@ -10,7 +10,7 @@
         <div class="col-lg-6 col-md-5">
           <div class="header__top__right">
             <div class="header__top__links">
-              <a href="#"><%= t("pages.header.login") %></a>
+              <%= header_links %>
               <%= language_link %>
             </div>
           </div>
@@ -27,7 +27,7 @@
       <div class="col-lg-6 col-md-6">
         <nav class="header__menu mobile-menu">
           <ul>
-            <li class="active">
+            <li>
               <%= link_to t("pages.home.title"), root_path %>
             </li>
             <li><%= link_to t("pages.shop.title"), shop_path %></li>

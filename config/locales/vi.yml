@@ -19,11 +19,19 @@ vi:
       detail: "Chi tiết sản phẩm"
       size: "Kích cỡ"
       color: "Màu sắc"
+    login:
+      title: "Đăng nhập"
+      email_label: "Email"
+      password_label: "Mật khẩu"
+      remember_me_label: "Ghi nhớ trên thiết này"
+      submit_button: "Đăng nhập"
     cart:
       title: "Giỏ hàng"
       add: "Thêm vào giỏ hàng"
     header:
       login: "Đăng nhập"
+      logout: "Đăng xuất"
+      admin: "Trang quản trị"
   filter:
     product:
       category: "Danh mục"
@@ -33,3 +41,7 @@ vi:
       color: "Màu sắc"
       tags: "Nhãn"
       search: "Tìm kiếm sản phẩm"
+  errors:
+    login:
+      invalid: "Email hoặc mật khẩu không hợp lệ"
+      not_active: "Tài khoản của bạn không hoạt động"

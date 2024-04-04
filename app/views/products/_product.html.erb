@@ -3,9 +3,11 @@
     <div class="product__item__pic set-bg">
       <%= image_tag(product.product_photos.first.photo_path) %>
       <ul class="product__hover">
-        <li><a href="#">
-          <i class="fa fa-eye text-black-50" aria-hidden="true"></i>
-        </a></li>
+        <li>
+          <%= link_to product_path(product) do %>
+            <i class="fa fa-eye text-black-50" aria-hidden="true"></i>
+          <% end %>
+        </li>
       </ul>
     </div>
     <div class="product__item__text">

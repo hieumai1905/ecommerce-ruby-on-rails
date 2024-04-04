@@ -3956,3 +3956,79 @@ ol {
     height: 250px;
   }
 }
+
+.p-c-blue {
+  background: #007bff;
+}
+
+.p-c-red {
+  background: #dc3545;
+}
+
+.p-c-green {
+  background: #28a745;
+}
+
+.p-c-yellow {
+  background: #ffc107;
+}
+
+.p-c-purple {
+  background: #6f42c1;
+}
+
+.p-c-orange {
+  background: #fd7e14;
+}
+
+.p-c-pink {
+  background: #e83e8c;
+}
+
+.p-c-cyan {
+  background: #17a2b8;
+}
+
+.p-c-white {
+  background: #fff;
+}
+
+.p-c-black {
+  background: #000;
+}
+
+.p-c-brown {
+  background: #8B4513;
+}
+
+.p-c-gray {
+  background: #808080;
+}
+
+.p-c-orchid {
+  background: #DA70D6;
+}
+
+.p-c-salmon {
+  background: #FA8072;
+}
+
+.p-c-emerald {
+  background: #2E8B57;
+}
+
+.p-c-taupe {
+  background: #483C32;
+}
+
+.product__details__option__color label {
+  transition: transform 0.3s;
+}
+
+.product__details__option__color label.zoomed {
+  transform: scale(1.3);
+}
+
+.product-detail-img{
+  width: 80%;
+}

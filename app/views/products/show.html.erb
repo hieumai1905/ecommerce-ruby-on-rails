@@ -1,0 +1,64 @@
+<!-- Shop Details Section Begin -->
+<section class="shop-details">
+  <div class="product__details__pic">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="product__details__breadcrumb">
+            <%= link_to t("pages.home.title"), root_path %>
+            <%= link_to t("pages.shop.title"), shop_path %>
+            <span><%= t("pages.product.detail") %></span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <%= render "product_photos" %>
+      </div>
+    </div>
+  </div>
+  <%= javascript_include_tag 'custom/product', 'data-turbolinks-track': 'reload' %>
+  <div class="product__details__content">
+    <div class="container">
+      <div class="row d-flex justify-content-center">
+        <div class="col-lg-8">
+          <div class="product__details__text">
+            <input type="hidden" id="product_id" value="<%= @product.id %>">
+            <h4><%= @product.product_name %></h4>
+            <h3><%= render_price_range @product %></h3>
+            <p class="pt-2"><%= @product.description %></p>
+            <div class="product__details__option">
+              <div class="product__details__option__size">
+                <span><%= t("pages.product.size") %>:</span>
+                <input type="hidden" id="current_size">
+                <%= render_size_options(@product) %>
+              </div>
+              <div class="product__details__option__color">
+                <span><%= t("pages.product.color") %>:</span>
+                <input type="hidden" id="current_color">
+                <%= render_color_options(@product) %>
+              </div>
+            </div>
+            <div class="product__details__cart__option">
+              <div class="quantity">
+                <div class="pro-qty">
+                  <input type="number" value="1" min=1>
+                </div>
+              </div>
+              /
+              <span id="quantity_product" style="display: none"></span>
+              <a href="#" class="primary-btn ml-5"><%= t("pages.cart.add") %></a>
+            </div>
+            <div class="product__details__last__option mb-4">
+              <p><span>____</span></p>
+              <ul>
+                <li><span><%= t("filter.product.brand") %>:</span> <%= @product.brand %></li>
+                <li><span><%= t("filter.product.category") %>:</span> <%= @product.category %></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Shop Details Section End -->

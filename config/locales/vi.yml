@@ -15,6 +15,10 @@ vi:
       show_title: "Hiển thị"
       result: "kết quả"
       empty: "Không có sản phẩm nào"
+      not_found: "Không tìm thấy sản phẩm"
+      detail: "Chi tiết sản phẩm"
+      size: "Kích cỡ"
+      color: "Màu sắc"
     cart:
       title: "Giỏ hàng"
       add: "Thêm vào giỏ hàng"

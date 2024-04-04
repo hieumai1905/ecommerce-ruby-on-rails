@@ -18,4 +18,32 @@ module ProductsHelper
   def render_color_label color
     content_tag(:label, "", class: color)
   end
+
+  def render_size_options product
+    product.product_details
+           .each_with_object(ActiveSupport::SafeBuffer
+                               .new) do |product_detail, html|
+      next unless product_detail.quantity.positive?
+
+      html << render_product_detail_label(product_detail)
+    end
+  end
+
+  def render_product_detail_label product_detail
+    label_tag(product_detail.size, for: product_detail.size) do
+      concat(product_detail.size)
+      concat(tag.input(type: "radio", id: product_detail.size))
+    end
+  end
+
+  def render_color_options product
+    colors = product.product_details.pluck(:color).uniq
+    safe_join(colors.map.with_index(1) do |color, index|
+      label_class = "p-c-#{color.downcase}"
+      input_id = "sp-#{index}"
+      label_tag(input_id, class: label_class) do
+        concat(tag.input(type: "radio", id: input_id))
+      end
+    end)
+  end
 end

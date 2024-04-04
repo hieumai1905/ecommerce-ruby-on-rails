@@ -15,6 +15,10 @@ en:
       show_title: "Showing"
       result: "result"
       empty: "Product is empty"
+      not_found: "Product not found"
+      detail: "Product Details"
+      size: "Size"
+      color: "Color"
     cart:
       title: "Cart"
       add: "Add to cart"

@@ -1,0 +1,48 @@
+<% provide :title, t("pages.cart.title") %>
+<!-- Trang shopping cart -->
+<%= render partial: "shared/breadcrumb", locals: { breadcrumb_title: t("pages.cart.shopping_cart"),
+                                                   breadcrumb_links: "#{link_to(t("pages.home.title"),
+                                                                                root_path)} #{link_to(t("pages.shop.title"), shop_path)}
+  <span>#{t("pages.cart.shopping_cart")}</span>".html_safe
+} %>
+<!-- Shopping Cart Section Begin -->
+<section class="shopping-cart spad">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="shopping__cart__table">
+          <table>
+            <thead>
+            <tr>
+              <th><%= t("pages.product.title") %></th>
+              <th><%= t("pages.product.quantity") %></th>
+              <th><%= t("pages.cart.total") %></th>
+              <th></th>
+            </tr>
+            </thead>
+            <tbody id="data_cart">
+              <%= render partial: "cart_item"%>
+            </tbody>
+          </table>
+        </div>
+        <div class="row">
+          <div class="col-lg-6 col-md-6 col-sm-6">
+            <div class="continue__btn">
+              <%= link_to t("pages.cart.continue"), shop_path %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="cart__total">
+          <h6><%= t("pages.cart.cart_total") %></h6>
+          <ul>
+            <li><%= t("pages.cart.sum_total") %> <span id="sum_total"><%= number_to_currency(@sum_total) %></span></li>
+          </ul>
+          <a href="#" class="primary-btn"><%= t("pages.cart.checkout") %></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Shopping Cart Section End -->

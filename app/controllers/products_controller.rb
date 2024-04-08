@@ -13,7 +13,7 @@ class ProductsController < ApplicationController
     product_details = @product.product_details.filter_by_color_and_size(color,
                                                                         size)
     quantity = product_details.sum(:quantity)
-    render json: {quantity: quantity}
+    render json: {quantity: quantity, product_details: product_details}
   end
 
   private

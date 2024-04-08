@@ -23,6 +23,7 @@
         <div class="col-lg-8">
           <div class="product__details__text">
             <input type="hidden" id="product_id" value="<%= @product.id %>">
+            <input type="hidden" id="product_detail_id_current"/>
             <h4><%= @product.product_name %></h4>
             <h3><%= render_price_range @product %></h3>
             <p class="pt-2"><%= @product.description %></p>
@@ -41,12 +42,12 @@
             <div class="product__details__cart__option">
               <div class="quantity">
                 <div class="pro-qty">
-                  <input type="number" value="1" min=1>
+                  <input type="number" value=0 min=1 id="quantity_current">
                 </div>
               </div>
               /
-              <span id="quantity_product" style="display: none"></span>
-              <a href="#" class="primary-btn ml-5"><%= t("pages.cart.add") %></a>
+              <span id="quantity_product"></span>
+              <p class="primary-btn ml-5 btn-custom" id="btn-AddToCart"><%= t("pages.cart.add") %></p>
             </div>
             <div class="product__details__last__option mb-4">
               <p><span>____</span></p>

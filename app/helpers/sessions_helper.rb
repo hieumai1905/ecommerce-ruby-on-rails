@@ -35,6 +35,7 @@ module SessionsHelper
   def log_out
     forget current_account
     session.delete :account_id
+    session.delete :cart
     @current_account = nil
   end
 

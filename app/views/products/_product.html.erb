@@ -12,7 +12,7 @@
     </div>
     <div class="product__item__text">
       <h6><%= product.product_name %></h6>
-      <a href="#" class="add-cart">+ <%= t("pages.cart.add") %></a>
+      <%= link_to t("pages.product.detail"), product_path(product) %>
       <%= render_price_range(product) %>
       <%= render_color_select product %>
     </div>

@@ -12,7 +12,7 @@ module ProductsHelper
     price_range = "#{number_to_currency(minimum_price, unit: '$',
     precision: 2)} - #{number_to_currency(maximum_price, unit: '$',
                                           precision: 2)}"
-    content_tag(:h6, price_range)
+    content_tag(:h6, price_range, id: "price_current")
   end
 
   def render_color_label color

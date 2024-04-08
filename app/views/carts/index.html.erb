@@ -8,6 +8,9 @@
 <!-- Shopping Cart Section Begin -->
 <section class="shopping-cart spad">
   <div class="container">
+    <% flash.each do |message_type, message| %>
+      <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+    <% end %>
     <div class="row">
       <div class="col-lg-8">
         <div class="shopping__cart__table">
@@ -39,7 +42,7 @@
           <ul>
             <li><%= t("pages.cart.sum_total") %> <span id="sum_total"><%= number_to_currency(@sum_total) %></span></li>
           </ul>
-          <a href="#" class="primary-btn"><%= t("pages.cart.checkout") %></a>
+          <%= link_to t("pages.cart.checkout.btn_checkout"), new_bill_path, class: "primary-btn" %>
         </div>
       </div>
     </div>

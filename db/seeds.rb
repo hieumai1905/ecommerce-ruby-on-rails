@@ -1,18 +1,18 @@
 # seed data for account administration
-Account.create!(name: "Example User",
-                email: "example@railstutorial.org",
-                password: "foobar",
-                password_confirmation: "foobar",
+Account.create!(name: "ADMIN",
+                email: "admin@gmail.com",
+                password: "admin",
+                password_confirmation: "admin",
                 is_admin: true,
                 is_active: true)
 
 # seed data for account
 10.times do |n|
   name = Faker::Name.name
-  email = "example-#{n + 1}@gmail.com"
+  email = "user-#{n + 1}@gmail.com"
   is_active = Faker::Boolean.boolean
   phone = Faker::PhoneNumber.phone_number
-  password = "password"
+  password = "user"
   account = Account.create!(
     name: name,
     email: email,
@@ -25,12 +25,12 @@ Account.create!(name: "Example User",
   # Seed data for Bill bills
   3.times do
     bill = account.bills.create!(
-      billing_date: Faker::Time.between(from: 1.month.ago, to: Date.today),
+      created_at: Faker::Time.between(from: 1.month.ago, to: Date.today),
       amount: Faker::Commerce.price,
       payment_method: Faker::Commerce.product_name,
-      update_at: Faker::Time.between(from: 1.month.ago, to: Date.today),
       status: Faker::Boolean.boolean,
-      description: Faker::Lorem.paragraph
+      description: Faker::Lorem.paragraph,
+      address: Faker::Address.full_address
     )
 
     # Seed data for Evaluation

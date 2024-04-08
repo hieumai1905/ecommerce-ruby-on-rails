@@ -10,3 +10,8 @@ cart:
     default: 1
   decrement:
     default: -1
+bill:
+  amount:
+    min: 0
+  payment_method:
+    max_length: 255

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_01_045715) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_08_062406) do
   create_table "accounts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", limit: 50, null: false
     t.string "email", limit: 60, null: false
@@ -42,13 +42,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_01_045715) do
   end
 
   create_table "bills", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.datetime "billing_date", null: false
     t.float "amount", null: false
     t.string "payment_method", limit: 50, null: false
-    t.datetime "update_at", null: false
     t.boolean "status", default: true, null: false
     t.text "description", null: false
     t.bigint "account_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "address", null: false
     t.index ["account_id"], name: "index_bills_on_account_id"
     t.index ["id"], name: "index_bills_on_id", unique: true
   end

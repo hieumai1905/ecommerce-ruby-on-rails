@@ -29,7 +29,7 @@
       </div>
       <p><%= t("pages.product.max_quantity") %>: <%= item[:product_detail][:quantity] %></p>
     </td>
-    <td class="cart__price text-right"><%= number_to_currency(item[:total_price]) %></td>
+    <td class="cart__price text-left"><%= number_to_currency(item[:total_price]) %></td>
     <td class="cart__close">
       <%= link_to delete_cart_item_path(item[:product_detail][:id]), data: { "turbo-method": :delete,
                                                                              turbo_confirm: t("pages.cart.confirm_delete_item") } do %>

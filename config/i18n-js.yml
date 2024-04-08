@@ -1,0 +1,5 @@
+translations:
+  - file: "app/javascript/i18n/%{locale}.js"
+    prefix: "import I18n from 'i18n-js';\n"
+    pretty_print: true
+    only: "*"

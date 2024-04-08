@@ -123,6 +123,8 @@ GEM
       activesupport (>= 6.1)
     i18n (1.14.4)
       concurrent-ruby (~> 1.0)
+    i18n-js (3.9.2)
+      i18n (>= 0.6.6)
     importmap-rails (2.0.1)
       actionpack (>= 6.0.0)
       activesupport (>= 6.0.0)
@@ -302,6 +304,7 @@ DEPENDENCIES
   faker
   figaro
   font-awesome-rails
+  i18n-js (= 3.9.2)
   importmap-rails
   jbuilder
   mysql2 (~> 0.5)

@@ -18,6 +18,8 @@ gem "sprockets-rails"
 
 gem "mysql2", "~> 0.5"
 
+gem "i18n-js", "3.9.2"
+
 gem "bootstrap-sass"
 
 gem "puma", ">= 5.0"

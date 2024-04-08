@@ -1,8 +1,9 @@
 en:
   language:
     english: "English"
-    vietnamese: "Vietnamese"
+    vietnamese: "Tiếng Việt"
   pages:
+    base_title: "Male fashion"
     home:
       title: "Home"
       welcome: "Welcome to our website"
@@ -19,15 +20,29 @@ en:
       detail: "Product Details"
       size: "Size"
       color: "Color"
+      quantity: "Quantity"
+      max_quantity: "Max quantity"
     login:
       title: "Login"
       email_label: "Email"
       password_label: "Password"
       remember_me_label: "Remember me on this device"
       submit_button: "Login"
+      require_login: "You need to login to continue"
     cart:
       title: "Cart"
       add: "Add to cart"
+      continue: "Continue shopping"
+      total: "Total"
+      cart_total: "Cart total"
+      sum_total: "Sum total"
+      checkout: "Checkout"
+      add_success: "Product has been added to cart"
+      add_fail: "Product has not been added to cart"
+      shopping_cart: "Shopping Cart"
+      confirm_delete_item: "Are you sure you want to delete this product?"
+      deleted: "Product has been deleted successfully"
+      insufficient_quantity: "You have some products in the cart exceed the stock quantity"
     header:
       login: "Login"
       logout: "Logout"

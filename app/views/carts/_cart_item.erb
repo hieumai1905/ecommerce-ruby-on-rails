@@ -1,0 +1,40 @@
+<% @cart_items.each do |item| %>
+  <tr>
+    <td class="product__cart__item">
+      <div class="product__cart__item__pic">
+        <%= image_tag item[:photo].photo_path, class: "photo_cart" %>
+      </div>
+      <div class="product__cart__item__text">
+
+        <h6>
+          <%= link_to item[:product_name], product_path(item[:product_detail]), class: "text-dark" %>
+        </h6>
+        <h6><%= number_to_currency(item[:product_detail][:price]) %></h6>
+        <span><%= t("pages.product.color") %>: <%= item[:product_detail][:color] %>
+        </span> | <span><%= t("pages.product.size") %>: <%= item[:product_detail][:size] %></span>
+      </div>
+    </td>
+    <td class="quantity__item text-left">
+      <div class="quantity ml-2">
+        <div class="pro-qty-2 d-flex text-center">
+          <%= link_to update_cart_item_path(item[:product_detail][:id], increase: false), data: { "turbo-method": :patch }, class: "text-dark" do %>
+            <i class="fa fa-minus" aria-hidden="true"></i>
+          <% end %>
+
+          <input type="text" value="<%= item[:quantity] %>" readonly min="0">
+          <%= link_to update_cart_item_path(item[:product_detail][:id], increase: true), data: { "turbo-method": :patch }, class: "text-dark" do %>
+            <i class="fa fa-plus" aria-hidden="true"></i>
+          <% end %>
+        </div>
+      </div>
+      <p><%= t("pages.product.max_quantity") %>: <%= item[:product_detail][:quantity] %></p>
+    </td>
+    <td class="cart__price text-right"><%= number_to_currency(item[:total_price]) %></td>
+    <td class="cart__close">
+      <%= link_to delete_cart_item_path(item[:product_detail][:id]), data: { "turbo-method": :delete,
+                                                                             turbo_confirm: t("pages.cart.confirm_delete_item") } do %>
+        <i class="fa fa-trash-o text-danger" aria-hidden="true"></i>
+      <% end %>
+    </td>
+  </tr>
+<% end %>

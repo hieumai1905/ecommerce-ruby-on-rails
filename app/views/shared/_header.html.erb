@@ -22,6 +22,9 @@
     <div class="row">
       <div class="col-lg-3 col-md-3">
         <div class="header__logo">
+          <%= link_to root_path do %>
+            <%= image_tag("logo.png") %>
+          <% end %>
         </div>
       </div>
       <div class="col-lg-6 col-md-6">
@@ -33,6 +36,20 @@
             <li><%= link_to t("pages.shop.title"), shop_path %></li>
           </ul>
         </nav>
+      </div>
+      <div class="col-lg-3 col-md-3">
+        <div class="header__nav__option">
+          <div class="price">
+            <span>
+              <%= link_to carts_path do %>
+                <i class="fa fa-shopping-cart text-dark" aria-hidden="true"></i>
+              <% end %>
+            </span>
+            <i id="cart_product_count">
+              <%= count_cart_items %>
+            </i>
+          </div>
+        </div>
       </div>
     </div>
     <div class="canvas__open"><i class="fa fa-bars"></i></div>

@@ -28,4 +28,9 @@ module ApplicationHelper
       link_to(t("pages.header.login"), login_path)
     end
   end
+
+  def full_title page_title
+    base_title = t "pages.base_title"
+    page_title.blank? ? base_title : "#{page_title} | #{base_title}"
+  end
 end

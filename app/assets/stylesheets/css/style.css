@@ -4032,3 +4032,11 @@ ol {
 .product-detail-img{
   width: 80%;
 }
+
+.btn-custom{
+  cursor: pointer;
+}
+
+.photo_cart{
+  max-width: 15vh;
+}

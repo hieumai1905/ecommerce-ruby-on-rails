@@ -1,8 +1,9 @@
 vi:
   language:
-    english: "Tiếng Anh"
-    vietnamese: "Tiếng Việt"
+    english: "English"
+    vietnamese: "Vietnamese"
   pages:
+    base_title: "Thời trang nam"
     home:
       title: "Trang chủ"
       welcome: "Chào mừng đến với trang web của chúng tôi"
@@ -19,15 +20,29 @@ vi:
       detail: "Chi tiết sản phẩm"
       size: "Kích cỡ"
       color: "Màu sắc"
+      quantity: "Số lượng"
+      max_quantity: "Số lượng tối đa"
     login:
       title: "Đăng nhập"
       email_label: "Email"
       password_label: "Mật khẩu"
       remember_me_label: "Ghi nhớ trên thiết này"
       submit_button: "Đăng nhập"
+      require_login: "Bạn cần đăng nhập để tiếp tục"
     cart:
       title: "Giỏ hàng"
       add: "Thêm vào giỏ hàng"
+      continue: "Tiếp tục mua sắm"
+      total: "Tổng cộng"
+      cart_total: "Tổng giỏ hàng"
+      sum_total: "Tổng tiền"
+      checkout: "Thanh toán"
+      add_success: "Sản phẩm đã được thêm vào giỏ hàng"
+      add_fail: "Sản phẩm chưa được thêm vào giỏ hàng"
+      shopping_cart: "Giỏ hàng"
+      confirm_delete_item: "Bạn có chắc chắn muốn xóa sản phẩm này không?"
+      deleted: "Sản phẩm đã được xóa thành công"
+      insufficient_quantity: "Bạn đã có một số sản phẩm trong giỏ hàng vượt quá số lượng tồn kho"
     header:
       login: "Đăng nhập"
       logout: "Đăng xuất"

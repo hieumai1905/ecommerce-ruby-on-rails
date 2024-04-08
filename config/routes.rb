@@ -13,5 +13,11 @@ Rails.application.routes.draw do
     namespace :admin do
       root "dashboard#home"
     end
+
+    get "/carts", to: "carts#index"
+    get "carts/count", to: "carts#count_cart_items"
+    post "/carts", to: "carts#create"
+    patch "/carts/:product_detail_id", to: "carts#update", as: "update_cart_item"
+    delete "/carts/:product_detail_id", to: "carts#destroy", as: "delete_cart_item"
   end
 end

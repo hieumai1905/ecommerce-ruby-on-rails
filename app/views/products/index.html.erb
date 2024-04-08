@@ -1,4 +1,8 @@
-<%= render "shared/breadcrumb" %>
+<!-- Shop Section Begin -->
+<%= render partial: "shared/breadcrumb", locals: { breadcrumb_title: t("pages.shop.title"),
+                                                   breadcrumb_links: "#{link_to(t("pages.home.title"), root_path)}
+  <span>#{t("pages.shop.title")}</span>".html_safe }
+%>
 <!-- Shop Section Begin -->
 <section class="shop spad">
   <div class="container">
@@ -15,7 +19,7 @@
           </div>
         </div>
         <div class="row">
-          <%= render @products || t("pages.product.empty")%>
+          <%= render @products || t("pages.product.empty") %>
         </div>
         <div class="row">
           <div class="col-lg-12">

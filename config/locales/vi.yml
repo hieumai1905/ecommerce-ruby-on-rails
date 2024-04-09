@@ -29,6 +29,12 @@ vi:
       remember_me_label: "Ghi nhớ trên thiết này"
       submit_button: "Đăng nhập"
       require_login: "Bạn cần đăng nhập để tiếp tục"
+    payment_methods:
+      title: "Phương thức thanh toán"
+      cash: "Tiền mặt"
+      credit_card: "Thẻ tín dụng"
+      bank_transfer: "Chuyển khoản ngân hàng"
+      paypal: "PayPal"
     cart:
       title: "Giỏ hàng"
       add: "Thêm vào giỏ hàng"
@@ -36,13 +42,42 @@ vi:
       total: "Tổng cộng"
       cart_total: "Tổng giỏ hàng"
       sum_total: "Tổng tiền"
-      checkout: "Thanh toán"
+      cart_blank: "Giỏ hàng trống"
+      checkout:
+        btn_checkout: "Thanh toán"
+        title: "Thanh Toán"
+        your_order: "Đơn hàng của bạn"
+        place_order: "Đặt hàng"
+        bill_detail: "Chi tiết hóa đơn"
+        error: "Đã có lỗi xảy ra, vui lòng thử lại sau."
+        order_notes:
+          title: "Ghi chú đơn hàng"
+          placeholder: "Ghi chú về đơn hàng của bạn, ví dụ: ghi chú đặc biệt cho việc giao hàng."
+        address:
+          detail:
+            title: "Chi tiết địa chỉ"
+            placeholder: "Ghi chú địa chỉ cụ thể của bạn. Ví dụ: Số nhà xx..."
+          full_name: "Họ và tên"
+          name: "Tên người nhận"
+          phone: "Số điện thoại"
+          province_city: "Tỉnh/Thành phố"
+          district: "Quận/Huyện"
+          ward_commune: "Phường/Xã"
+        confirm: "Bạn có chắc chắn muốn đặt hàng không?"
       add_success: "Sản phẩm đã được thêm vào giỏ hàng"
       add_fail: "Sản phẩm chưa được thêm vào giỏ hàng"
       shopping_cart: "Giỏ hàng"
       confirm_delete_item: "Bạn có chắc chắn muốn xóa sản phẩm này không?"
       deleted: "Sản phẩm đã được xóa thành công"
       insufficient_quantity: "Bạn đã có một số sản phẩm trong giỏ hàng vượt quá số lượng tồn kho"
+    bill:
+      create_success: "Đơn hàng của bạn đã được tạo thành công"
+      create_failure: "Đơn hàng của bạn chưa được tạo thành công"
+      validates:
+        amount: "Số tiền phải lớn hơn 0"
+        payment_method: "Phương thức thanh toán không hợp lệ"
+        address: "Địa chỉ không hợp lệ"
+        info_error: "Vui lòng kiểm tra lại thông tin, với các thông tin * là bắt buộc"
     header:
       login: "Đăng nhập"
       logout: "Đăng xuất"

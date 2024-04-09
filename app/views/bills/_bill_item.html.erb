@@ -1,0 +1,7 @@
+<% @bill_items.each_with_index do |item, index| %>
+  <li>
+    <%= (index + 1).to_s + ". " + item[:product_name]%>
+    <i class="text-danger"><%= " x" + item[:quantity].to_s %></i>
+    <span> <%= number_to_currency(item[:total_price]) %></span>
+  </li>
+<% end %>

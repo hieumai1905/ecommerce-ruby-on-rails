@@ -12,10 +12,10 @@ class CartsController < ApplicationController
       product_detail_id = item["product_detail_id"]
       next if product_detail_id.blank?
 
-      product_detail = ProductDetail.find_by(id: product_detail_id.to_i)
+      product_detail = ProductDetail.find_by id: product_detail_id.to_i
       next unless product_detail
 
-      add_cart_item(product_detail, item)
+      add_cart_item product_detail, item
     end
   end
 
@@ -33,7 +33,7 @@ class CartsController < ApplicationController
     if params[:increase] == Settings.cart.increment.condition
       update_quantity_increase quantity
     elsif quantity == Settings.cart.size.min
-      delete_product(params[:product_detail_id])
+      delete_product params[:product_detail_id]
     else
       update_quantity_decrement
     end
@@ -109,7 +109,7 @@ class CartsController < ApplicationController
     quantity = get_quantity_product.to_i
     if sufficient_quantity?(cart_params[:product_detail_id],
                             cart_params[:quantity].to_i + quantity)
-      update_product_quantity(cart_params[:quantity].to_i)
+      update_product_quantity cart_params[:quantity].to_i
       render json: {message: t("pages.cart.add_success")}
     else
       render json: {message: t("pages.cart.insufficient_quantity")}
@@ -118,7 +118,6 @@ class CartsController < ApplicationController
 
   def add_cart_item product_detail, item
     total_price = product_detail.price * item["quantity"].to_i
-
     @cart_items << {
       product_detail: product_detail,
       quantity: item["quantity"].to_i,

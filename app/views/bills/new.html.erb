@@ -1,0 +1,77 @@
+<% provide :title, t("pages.cart.checkout.title") %>
+<!-- Trang shopping cart -->
+<%= render partial: "shared/breadcrumb", locals: { breadcrumb_title: t("pages.cart.checkout.title"),
+                                                   breadcrumb_links: "#{link_to(t("pages.home.title"),
+                                                                                root_path)} #{link_to(t("pages.shop.title"), shop_path)}
+  <span>#{t("pages.cart.checkout.title")}</span>".html_safe
+} %>
+<!-- Checkout Section Begin -->
+<section class="checkout spad">
+  <div class="container">
+    <%= render "shared/alert_message" %>
+    <div class="checkout__form">
+      <%= form_with(model: @new_bill, data: {confirm: "ok"}) do |f| %>
+        <div class="row">
+          <div class="col-lg-8 col-md-6">
+            <h6 class="checkout__title"><%= t("pages.cart.checkout.bill_detail") %></h6>
+            <div class="checkout__input">
+              <p><%= t("pages.cart.checkout.address.full_name") %><span>*</span></p>
+              <%= f.text_field :full_name, value: current_account.name, class: "form-control" %>
+            </div>
+            <div class="checkout__input">
+              <p><%= t("pages.cart.checkout.address.province_city") %><span>*</span></p>
+              <%= f.text_field :province_city, class: "form-control" %>
+            </div>
+            <div class="checkout__input">
+              <p><%= t("pages.cart.checkout.address.district") %><span>*</span></p>
+              <%= f.text_field :district, class: "form-control" %>
+            </div>
+            <div class="checkout__input">
+              <p><%= t("pages.cart.checkout.address.ward_commune") %><span>*</span></p>
+              <%= f.text_field :ward_commune, class: "form-control" %>
+            </div>
+            <div class="checkout__input">
+              <p><%= t("pages.cart.checkout.address.detail.title") %><span>*</span></p>
+              <%= f.text_field :detail, placeholder: t("pages.cart.checkout.address.detail.placeholder"), class: "form-control checkout__input__add" %>
+            </div>
+            <div class="checkout__input">
+              <p><%= t("pages.cart.checkout.address.phone") %><span>*</span></p>
+              <%= f.text_field :phone, value: current_account.phone, class: "form-control" %>
+            </div>
+            <div class="checkout__input">
+              <p><%= t("pages.cart.checkout.order_notes.title") %></p>
+              <%= f.text_field :order_notes, placeholder: t("pages.cart.checkout.order_notes.placeholder"), class: "form-control" %>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="checkout__order">
+              <h4 class="order__title"><%= t("pages.cart.checkout.your_order") %></h4>
+              <div class="checkout__order__products"><%= t("pages.product.title") %>
+                <span><%= t("pages.cart.total") %></span></div>
+              <ul class="checkout__total__products">
+                <%= render "bill_item" %>
+              </ul>
+              <ul class="checkout__total__all">
+                <li><%= t("pages.cart.total") %> <span><%= number_to_currency(@sum_total) %></span></li>
+              </ul>
+              <ul class="checkout__total__products">
+                <li><%= t("pages.payment_methods.title") %> <i class="text-danger">*</i></li>
+                <% Bill.payment_methods.each_key do |key| %>
+                  <li>
+                    <label for="<%= key %>">
+                      <%= f.radio_button :payment_method, key %>
+                      <%= Bill.new(payment_method: key).payment_method_translation %>
+                      <span class="checkmark"></span>
+                    </label>
+                  </li>
+                <% end %>
+              </ul>
+              <%= f.submit t("pages.cart.checkout.place_order"), class: "site-btn" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
+<!-- Checkout Section End -->

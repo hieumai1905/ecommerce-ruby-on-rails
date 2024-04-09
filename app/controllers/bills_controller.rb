@@ -6,15 +6,25 @@ class BillsController < ApplicationController
   def new; end
 
   def create
-    if update_product_quantity
-      if build_bill.save
-        handle_successful_creation
-      else
-        handle_failed_creation
+    ActiveRecord::Base.transaction do
+      locked_product_details = @bill_items.map do |item|
+        ProductDetail.lock.find_by(id: item[:product_detail_id])
       end
-    else
-      handle_error_update
+      if update_product_quantity locked_product_details
+        @bill = build_bill
+        if @bill.save
+          handle_successful_creation
+        else
+          handle_failed_creation
+          raise ActiveRecord::Rollback
+        end
+      else
+        handle_error_update
+        raise ActiveRecord::Rollback
+      end
     end
+  rescue ActiveRecord::Rollback
+    handle_error_update
   end
 
   private
@@ -38,7 +48,7 @@ class BillsController < ApplicationController
 
   def add_cart_item product_detail, item
     total_price = product_detail.price * item["quantity"].to_i
-    @bill_item << {
+    @bill_items << {
       product_detail_id: product_detail.id,
       product_name: product_detail.product_name,
       quantity: item["quantity"].to_i,
@@ -48,7 +58,7 @@ class BillsController < ApplicationController
   end
 
   def load_detail_bill
-    @bill_item = []
+    @bill_items = []
     @sum_total = 0
     session[:cart].each do |item|
       next if item.blank?
@@ -98,15 +108,21 @@ class BillsController < ApplicationController
     end
   end
 
-  def update_product_quantity
-    @bill_item.each do |item|
-      product_detail = ProductDetail.find_by id: item[:product_detail_id]
+  def update_product_quantity locked_product_details
+    locked_product_details.each do |product_detail|
       if product_detail.nil?
         flash.now[:danger] = t "pages.cart.checkout.error"
         return false
       else
+        item = @bill_items.find do |item|
+          item[:product_detail_id] == product_detail.id
+        end
         new_quantity = product_detail.quantity - item[:quantity]
-        product_detail.update_column :quantity, new_quantity
+        if new_quantity.negative?
+          handle_error_update
+        else
+          product_detail.update_column :quantity, new_quantity
+        end
       end
     end
     true

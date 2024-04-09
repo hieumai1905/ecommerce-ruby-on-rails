@@ -1,4 +1,4 @@
-<% @bill_item.each_with_index do |item, index| %>
+<% @bill_items.each_with_index do |item, index| %>
   <li>
     <%= (index + 1).to_s + ". " + item[:product_name]%>
     <i class="text-danger"><%= " x" + item[:quantity].to_s %></i>

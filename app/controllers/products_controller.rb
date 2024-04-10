@@ -1,9 +1,7 @@
 class ProductsController < ApplicationController
   before_action :load_product, only: %i(show details)
-  def index
-    @pagy, @products = pagy(Product.order_by_name,
-                            items: Settings.pagy.product.per_page)
-  end
+  before_action :load_data, only: :index
+  def index; end
 
   def show; end
 
@@ -12,7 +10,7 @@ class ProductsController < ApplicationController
     size = params[:size]
     product_details = @product.product_details.filter_by_color_and_size(color,
                                                                         size)
-    quantity = product_details.sum(:quantity)
+    quantity = product_details.sum :quantity
     render json: {quantity: quantity, product_details: product_details}
   end
 

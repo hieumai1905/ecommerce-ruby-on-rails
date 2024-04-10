@@ -46,4 +46,26 @@ module ProductsHelper
       end
     end)
   end
+
+  def price_range_link start_price, end_price
+    start_price_format = number_to_currency(start_price, unit: "$",
+        precision: 0)
+    end_price_format = if end_price == Settings.product_detail.price_max
+                         "#{t('filter.product.above')} #{start_price_format}"
+                       else
+                         number_to_currency end_price, unit: "$",
+                              precision: 0
+                       end
+    link_to search_price_range_path(start: start_price, end: end_price),
+            class: "text-dark",
+            data: {"turbo_method": :get} do
+      if end_price == Settings.product_detail.price_max
+        "#{t('filter.product.above')} #{start_price_format}"
+      elsif end_price_format.nil?
+        start_price_format
+      else
+        "#{start_price_format} - #{end_price_format}"
+      end
+    end
+  end
 end

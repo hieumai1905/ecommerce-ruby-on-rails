@@ -11,15 +11,11 @@ class BillsController < ApplicationController
     end
     ActiveRecord::Base.transaction do
       if update_product_quantity locked_product_details
-        @bill = build_bill
-        if @bill.save
-          handle_successful_creation
-        else
-          handle_failed_creation
-          raise ActiveRecord::Rollback
-        end
+        build_bill.save!
+        create_bill_details
+        handle_successful_creation
       else
-        handle_error_update
+        handle_failed_creation
         raise ActiveRecord::Rollback
       end
     end
@@ -103,21 +99,27 @@ class BillsController < ApplicationController
     end
   end
 
+  def create_bill_details
+    @bill_items.each do |item|
+      BillDetail.create!(
+        bill_id: @bill.id,
+        product_detail_id: item[:product_detail_id].to_i,
+        quantity: item[:quantity].to_i,
+        price: item[:total_price].to_f / item[:quantity].to_i
+      )
+    end
+  end
+
   def update_product_quantity locked_product_details
     locked_product_details.each do |product_detail|
-      if product_detail.nil?
-        flash.now[:danger] = t "pages.cart.checkout.error"
-        return false
+      product_current = @bill_items.find do |item|
+        item[:product_detail_id] == product_detail.id
+      end
+      new_quantity = product_detail.quantity - product_current[:quantity]
+      if new_quantity.negative?
+        handle_error_update
       else
-        product_current = @bill_items.find do |item|
-          item[:product_detail_id] == product_detail.id
-        end
-        new_quantity = product_detail.quantity - product_current[:quantity]
-        if new_quantity.negative?
-          handle_error_update
-        else
-          product_detail.update_column :quantity, new_quantity
-        end
+        product_detail.update_attribute! :quantity, new_quantity
       end
     end
     true

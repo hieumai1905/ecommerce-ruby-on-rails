@@ -6,6 +6,9 @@ Rails.application.routes.draw do
     get "/products/:id", to: "products#show", as: "product"
     get "/products/:id/details", to: "products#details", as: "product_details"
 
+    get "/search/products/:search_type", to: "filters#search", as: "search"
+    get "/search/price/range", to: "filters#search_by_price_range", as: "search_price_range"
+
     get "/login", to: "sessions#new"
     post "/login", to: "sessions#create"
     delete "/logout", to: "sessions#logout"

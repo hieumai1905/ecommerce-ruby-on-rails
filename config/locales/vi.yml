@@ -91,6 +91,7 @@ vi:
       color: "Màu sắc"
       tags: "Nhãn"
       search: "Tìm kiếm sản phẩm"
+      above: "Trên"
   errors:
     login:
       invalid: "Email hoặc mật khẩu không hợp lệ"

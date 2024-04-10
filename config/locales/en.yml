@@ -91,6 +91,7 @@ en:
       color: "Colors"
       tags: "Tags"
       search: "Search products"
+      above: "Above"
   errors:
     login:
       invalid: "Invalid email or password"

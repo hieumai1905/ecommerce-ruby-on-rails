@@ -1,11 +1,13 @@
 <div class="col-lg-3">
   <div class="shop__sidebar">
     <div class="shop__sidebar__search">
-        <p> <%= t("filter.product.search") %></p>
-      <form action="#">
-        <input type="text" placeholder="...">
-        <button type="submit"><span class="icon_search"></span></button>
-      </form>
+      <p> <%= t("filter.product.search") %></p>
+      <%= form_with(url: search_path(search_type: Settings.search_type.name), method: :get) do |f| %>
+        <%= f.text_field :name, name: :name, value: @name_search, class: "text-dark", placeholder: "..." %>
+        <button type="submit" class="btn btn-outline-secondary">
+          <i class="fa fa-search" aria-hidden="true"></i>
+        </button>
+      <% end %>
     </div>
     <div class="shop__sidebar__accordion">
       <div class="accordion" id="accordionExample">
@@ -18,7 +20,13 @@
           <div id="collapseOne" class="collapse show" data-parent="#accordionExample">
             <div class="card-body">
               <div class="shop__sidebar__categories">
-                <ul class="nice-scroll">
+                <ul class="nice-scroll overflow-auto">
+                  <% @categories.each do |item| %>
+                    <li>
+                      <% class_name = item.category == @category_search ? "text-dark" : "" %>
+                      <%= link_to item.category, search_path(search_type: Settings.search_type.category, category: item.category), class: class_name, data: { "turbo_method": :get } %>
+                    </li>
+                  <% end %>
                 </ul>
               </div>
             </div>
@@ -32,7 +40,15 @@
           </div>
           <div id="collapseTwo" class="collapse show" data-parent="#accordionExample">
             <div class="card-body">
-              <div class="shop__sidebar__brand">
+              <div class="shop__sidebar__categories">
+                <ul class="nice-scroll overflow-auto">
+                  <% @brands.each do |item| %>
+                    <li>
+                      <% class_name = item.brand == @brand_search ? "text-dark" : "" %>
+                      <%= link_to item.brand, search_path(search_type: Settings.search_type.brand, brand: item.brand), class: class_name, data: { "turbo_method": :get } %>
+                    </li>
+                  <% end %>
+                </ul>
               </div>
             </div>
           </div>
@@ -46,47 +62,21 @@
           <div id="collapseThree" class="collapse show" data-parent="#accordionExample">
             <div class="card-body">
               <div class="shop__sidebar__price">
-                <ul>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-heading">
-            <a data-toggle="collapse" data-target="#collapseFour">
-              <%= t("filter.product.size") %>
-            </a>
-          </div>
-          <div id="collapseFour" class="collapse show" data-parent="#accordionExample">
-            <div class="card-body">
-              <div class="shop__sidebar__size">
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-heading">
-            <a data-toggle="collapse" data-target="#collapseFive">
-              <%= t("filter.product.color") %>
-            </a>
-          </div>
-          <div id="collapseFive" class="collapse show" data-parent="#accordionExample">
-            <div class="card-body">
-              <div class="shop__sidebar__color">
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-heading">
-            <a data-toggle="collapse" data-target="#collapseSix">
-              <%= t("filter.product.tags") %>
-            </a>
-          </div>
-          <div id="collapseSix" class="collapse show" data-parent="#accordionExample">
-            <div class="card-body">
-              <div class="shop__sidebar__tags">
+                <div class="row text-left">
+                  <div class="col-6">
+                    <%= price_range_link(Settings.product_detail.price_0, Settings.product_detail.price_20) %>
+                  </div>
+                  <div class="col-6">
+                    <%= price_range_link(Settings.product_detail.price_20, Settings.product_detail.price_50) %>
+                  </div>
+                  <hr>
+                  <div class="col-6">
+                    <%= price_range_link(Settings.product_detail.price_50, Settings.product_detail.price_100) %>
+                  </div>
+                  <div class="col-6">
+                    <%= price_range_link(Settings.product_detail.price_100, Settings.product_detail.price_max) %>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

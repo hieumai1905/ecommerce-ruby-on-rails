@@ -18,4 +18,11 @@ class ApplicationController < ActionController::Base
     flash[:danger] = t "pages.login.require_login"
     redirect_to login_path
   end
+
+  def load_data
+    @pagy, @products = pagy(Product.order_by_name,
+                            items: Settings.pagy.product.per_page)
+    @brands = Product.get_brands
+    @categories = Product.get_categories
+  end
 end

@@ -15,3 +15,13 @@ bill:
     min: 0
   payment_method:
     max_length: 255
+product_detail:
+  price_0: 0
+  price_20: 20
+  price_50: 50
+  price_100: 100
+  price_max: 1000000
+search_type:
+  name: "name"
+  category: "category"
+  brand: "brand"

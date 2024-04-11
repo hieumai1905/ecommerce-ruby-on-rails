@@ -4040,3 +4040,7 @@ ol {
 .photo_cart{
   max-width: 15vh;
 }
+
+.photo_cart_min{
+  max-width: 10vh;
+}

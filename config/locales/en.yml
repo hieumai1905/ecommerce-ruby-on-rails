@@ -71,8 +71,20 @@ en:
       deleted: "Product has been deleted successfully"
       insufficient_quantity: "You have some products in the cart exceed the stock quantity"
     bill:
+      id: "ID"
+      order_date: "Order Date"
+      into_money: "Into Money"
+      not_found: "Bill not found"
+      status:
+        title: "Status"
+        completed: "Completed"
+        canceled: "Canceled"
+      repurchase: "Repurchase"
+      details: "Details"
       create_success: "Order has been created successfully"
       create_failure: "Order has not been created successfully"
+      history:
+        title: "History Order"
       validates:
         amount: "Amount must be greater than 0"
         payment_method: "Payment method is invalid"

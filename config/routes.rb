@@ -24,5 +24,8 @@ Rails.application.routes.draw do
     delete "/carts/:product_detail_id", to: "carts#destroy", as: "delete_cart_item"
 
     resources :bills, only: %i(new create)
+
+    get "/histories", to: "histories#index"
+    get "/histories/:id", to: "histories#show", as: "history"
   end
 end

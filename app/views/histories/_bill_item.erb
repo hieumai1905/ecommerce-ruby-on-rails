@@ -1,0 +1,12 @@
+<% @bills.each do |item| %>
+  <tr>
+    <td><%= formatted_created_at(item.created_at) %></td>
+    <td class="text-center"><%= number_to_currency(item.amount) %></td>
+    <td><%= status_label(item.status) %></td>
+    <td>
+      <%= link_to t("pages.bill.details"), history_path(id: item.id), class: "btn btn-primary",
+                  data: { "turbo_method": :get }%>
+      <a href="#" class="btn btn-danger"><%= t("pages.bill.repurchase") %></a>
+    </td>
+  </tr>
+<% end %>

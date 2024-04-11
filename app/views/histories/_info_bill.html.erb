@@ -1,0 +1,36 @@
+<div class="col-lg-5">
+  <div class="shopping__cart__table">
+    <table>
+      <thead>
+      <tr>
+        <th><%= t("pages.product.title") %></th>
+        <th><%= t("pages.product.quantity") %></th>
+        <th><%= t("pages.cart.total") %></th>
+      </tr>
+      </thead>
+      <tbody>
+      <%= render partial: "detail_item" %>
+      </tbody>
+    </table>
+  </div>
+  <div class="row">
+    <div class="col-lg-12 col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4><%= t("pages.bill.details") %></h4>
+        </div>
+        <div class="card-body">
+          <p class="card-text"><span class="font-weight-bold"><%= t("pages.cart.checkout.address.detail.title") %>:
+          </span>
+            <%= @current_bill.address %>
+          </p>
+          <p class="card-text">
+            <span class="font-weight-bold"><%= t("pages.payment_methods.title") %>:</span>
+            <%= Bill.new(payment_method: @current_bill.payment_method).payment_method_translation %>
+          </p>
+          <p class="card-text"><span class="font-weight-bold"><%= t("pages.cart.checkout.order_notes.title") %>:</span> <%= @current_bill.description %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

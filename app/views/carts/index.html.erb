@@ -26,13 +26,7 @@
             </tbody>
           </table>
         </div>
-        <div class="row">
-          <div class="col-lg-6 col-md-6 col-sm-6">
-            <div class="continue__btn">
-              <%= link_to t("pages.cart.continue"), shop_path %>
-            </div>
-          </div>
-        </div>
+        <%= render "carts/continue_shopping" %>
       </div>
       <div class="col-lg-4">
         <div class="cart__total">

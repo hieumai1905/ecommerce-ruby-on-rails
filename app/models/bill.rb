@@ -11,16 +11,19 @@ class Bill < ApplicationRecord
             presence: {message: I18n.t("pages.bill.validates.address")}
   validates :account_id, presence: true
 
+  scope :find_all_by_account_id, ->(account_id){where account_id: account_id}
+  scope :order_by_created_at, ->{order created_at: :desc}
+
   REQUIRED_ADDRESS_PARAMS = %i(full_name phone detail ward_commune district
                                 province_city).freeze
   PERMITTED_PARAMS = [:full_name, :province_city, :district, :ward_commune,
                       :detail, :order_notes, :phone, :payment_method].freeze
 
   enum payment_method: {
-    cash: :cash,
-    credit_card: :credit_card,
-    bank_transfer: :bank_transfer,
-    paypal: :paypal
+    cash: "cash",
+    credit_card: "credit_card",
+    bank_transfer: "bank_transfer",
+    paypal: "paypal"
   }
 
   def payment_method_translation

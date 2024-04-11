@@ -1,0 +1,23 @@
+<% @bill_items.each do |item| %>
+  <tr>
+    <td class="product__cart__item">
+      <div class="product__cart__item__pic">
+          <%= image_tag item[:photo].photo_path, class: "photo_cart_min" %>
+      </div>
+      <div>
+        <h6><%= link_to item[:product_name], product_path(item[:product_name]), class: "text-dark font-weight-bold" %></h6>
+        <h6 class="font-weight-bold"><%= number_to_currency(item[:price]) %></h6>
+        <span><%= t("pages.product.color") %>: <%= item[:color] %></span> |
+        <span><%= t("pages.product.size") %>: <%= item[:size] %></span>
+      </div>
+    </td>
+    <td class="quantity__item">
+      <div class="quantity">
+        <div class="pro-qty-2">
+          <input type="text" value="<%= item[:quantity] %>" readonly>
+        </div>
+      </div>
+    </td>
+    <td class="cart__price"><%= number_to_currency(item[:total_price]) %></td>
+  </tr>
+<% end %>

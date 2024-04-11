@@ -1,6 +1,8 @@
 pagy:
   product:
     per_page: 9
+  bill:
+    per_page: 5
 cart:
   size:
     default: 0

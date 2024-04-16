@@ -13,6 +13,16 @@ class Bill < ApplicationRecord
 
   scope :find_all_by_account_id, ->(account_id){where account_id: account_id}
   scope :order_by_created_at, ->{order created_at: :desc}
+  scope :find_by_status, ->(status){where status: status}
+  scope :current_month_revenue, (lambda do
+    where("EXTRACT(YEAR_MONTH FROM created_at) = ?",
+          Date.current.strftime("%Y%m"))
+      .sum(:amount)
+  end)
+  scope :current_year_revenue, (lambda do
+    where("EXTRACT(YEAR FROM created_at) = ?", Date.current.year)
+      .sum(:amount)
+  end)
 
   REQUIRED_ADDRESS_PARAMS = %i(full_name phone detail ward_commune district
                                 province_city).freeze

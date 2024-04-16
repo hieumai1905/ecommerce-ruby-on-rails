@@ -4,6 +4,20 @@ en:
     vietnamese: "Tiếng Việt"
   pages:
     base_title: "Male fashion"
+    admin:
+      title: "Admin page"
+      dashboard: "Dashboard"
+      product_page: "Products"
+      category_page: "Categorys"
+      brand_page: "Brands"
+      banner_page: "Banners"
+      user_page: "Users"
+      bill_page: "Bills"
+      count:
+        user: "Users"
+        revenue_month: "Revenue month"
+        revenue_year: "Revenue year"
+      top_product: "Top selling products"
     home:
       title: "Home"
       welcome: "Welcome to our website"
@@ -22,6 +36,11 @@ en:
       color: "Color"
       quantity: "Quantity"
       max_quantity: "Max quantity"
+      quantity_sold: "Quantity sold"
+      attributes:
+        name: "Product Name"
+        brand: "Brand"
+        category: "Category"
     login:
       title: "Login"
       email_label: "Email"
@@ -108,3 +127,4 @@ en:
     login:
       invalid: "Invalid email or password"
       not_active: "Your account is not active"
+      forbidden: "You are not authorized to access this page, please login with an authorized account"

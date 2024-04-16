@@ -17,6 +17,8 @@ bill:
     min: 0
   payment_method:
     max_length: 255
+  status:
+    completed: 1
 product_detail:
   price_0: 0
   price_20: 20
@@ -27,3 +29,5 @@ search_type:
   name: "name"
   category: "category"
   brand: "brand"
+product:
+  product_top: 8

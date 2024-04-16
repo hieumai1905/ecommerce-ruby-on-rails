@@ -1,0 +1,63 @@
+<div class="col-sm-2">
+  <div class="sidebar-container">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12 w-auto sidebar">
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <input type="checkbox" name="open" id="open" checked>
+            <label for="open" class="open">
+              <i class="fa fa-bars" aria-hidden="true"></i>
+
+            </label>
+            <div class="menu">
+              <ul>
+                <li>
+                  <%= link_to shop_path do %>
+                    <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+                    <%= t("pages.shop.title") %>
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to admin_root_path do %>
+                    <i class="fa fa-tachometer" aria-hidden="true"></i>
+                    <%= t("pages.admin.dashboard") %>
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to "#" do %>
+                    <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                    <%= t("pages.admin.user_page") %>
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to "#" do %>
+                    <i class="fa fa-file-image-o" aria-hidden="true"></i>
+                    <%= t("pages.admin.banner_page") %>
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to "#" do %>
+                    <i class="fa fa-product-hunt" aria-hidden="true"></i>
+                    <%= t("pages.admin.product_page") %>
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to "#" do %>
+                    <i class="fa fa-history" aria-hidden="true"></i>
+                    <%= t("pages.admin.category_page") %>
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to logout_path do %>
+                    <i class="fa fa-sign-out" aria-hidden="true"></i>
+                    <%= t("pages.header.logout") %>
+                  <% end %>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <title><%= t("pages.header.admin") %></title>
+  <%= stylesheet_link_tag "application", media: "all", "data-turbo-track": "reload" %>
+</head>
+<body>
+<div class="container-fluid">
+  <div class="row">
+    <%= render "admin/shared/sidebar" %>
+    <%= yield %>
+  </div>
+</div>
+</body>
+</html>

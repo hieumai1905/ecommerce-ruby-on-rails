@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     delete "/logout", to: "sessions#logout"
 
     namespace :admin do
-      root "dashboard#home"
+      root "dashboard#index"
     end
 
     get "/carts", to: "carts#index"
@@ -25,7 +25,6 @@ Rails.application.routes.draw do
 
     resources :bills, only: %i(new create)
 
-    get "/histories", to: "histories#index"
-    get "/histories/:id", to: "histories#show", as: "history"
+    resources :histories, only: %i(index show)
   end
 end

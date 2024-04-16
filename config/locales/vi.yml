@@ -4,6 +4,20 @@ vi:
     vietnamese: "Vietnamese"
   pages:
     base_title: "Thời trang nam"
+    admin:
+      title: "Trang quản trị"
+      dashboard: "Trang chủ"
+      product_page: "Sản phẩm"
+      category_page: "Danh mục"
+      brand_page: "Thương hiệu"
+      banner_page: "Banner"
+      user_page: "Người dùng"
+      bill_page: "Đơn hàng"
+      count:
+        user: "Người dùng khả dụng"
+        revenue_month: "Doanh thu tháng"
+        revenue_year: "Doanh thu năm"
+      top_product: "Top sản phẩm bán chạy"
     home:
       title: "Trang chủ"
       welcome: "Chào mừng đến với trang web của chúng tôi"
@@ -22,6 +36,11 @@ vi:
       color: "Màu sắc"
       quantity: "Số lượng"
       max_quantity: "Số lượng tối đa"
+      quantity_sold: "Số lượng đã bán"
+      attributes:
+        name: "Tên sản phẩm"
+        brand: "Thương hiệu"
+        category: "Danh mục"
     login:
       title: "Đăng nhập"
       email_label: "Email"
@@ -108,3 +127,4 @@ vi:
     login:
       invalid: "Email hoặc mật khẩu không hợp lệ"
       not_active: "Tài khoản của bạn không hoạt động"
+      forbidden: "Bạn không có quyền truy cập trang này, vui lòng đăng nhập với tài khoản có quyền truy cập"

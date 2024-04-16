@@ -1,0 +1,49 @@
+<div class="col-sm-9 mt-5">
+  <div class="white-box mt-5">
+    <div class="container-fluid  bg-white pl-5 ps-5 pt-2">
+      <h3 class="box-title mb-3 mt-4 font-weight-bold"><%= t("pages.admin.dashboard") %></h3>
+      <div class="row">
+        <div class="col-4 mt-3">
+          <div class="bg-white border rounded pl-3 mt-2 pt-2">
+            <h4 class="font-weight-bold mt-2 mb-3"><%= t("pages.admin.count.user") %></h4>
+            <h4 class="counter text-success text-right px-5 mb-3 mt-4 pb-1"><%= @account_count %></h4>
+          </div>
+        </div>
+        <div class="col-4 mt-3">
+          <div class="bg-white border rounded pl-3 mt-2 pt-2">
+            <h4 class="font-weight-bold mt-2 mb-3"><%= t("pages.admin.count.revenue_month") %></h4>
+            <h4 class="counter text-success text-right px-5 mb-3 mt-4 pb-1"><%= number_to_currency(@revenue_by_month) %></h4>
+          </div>
+        </div>
+        <div class="col-4 mt-3">
+          <div class="bg-white border rounded pl-3 mt-2 pt-2">
+            <h4 class="font-weight-bold mt-2 mb-3"><%= t("pages.admin.count.revenue_year") %></h4>
+            <h4 class="counter text-success text-right px-5 mb-3 mt-4 pb-1"><%= number_to_currency(@revenue_by_year) || 0 %></h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="white-box">
+    <div class="container-fluid bg-white p-5">
+      <h3 class="box-title mt-3 font-weight-bold mb-3"><%= t("pages.admin.top_product") %></h3>
+      <div class="table-responsive">
+        <table class="table text-nowrap">
+          <thead>
+          <tr>
+            <th class="border-top-0">#</th>
+            <th class="border-top-0"><%= t("pages.product.attributes.name") %></th>
+            <th class="border-top-0"><%= t("pages.product.attributes.category") %></th>
+            <th class="border-top-0"><%= t("pages.product.attributes.brand") %></th>
+            <th class="border-top-0 text-center"><%= t("pages.product.quantity_sold") %></th>
+          </tr>
+          </thead>
+          <tbody>
+          <%= render partial: "admin/dashboard/item_product", collection: @top_products, as: :item %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col-sm-1"></div>

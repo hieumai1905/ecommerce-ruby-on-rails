@@ -5,6 +5,10 @@ class Account < ApplicationRecord
   has_many :evaluations, dependent: :destroy
 
   scope :current_accounts_count, ->{where(is_active: true).count}
+  scope :without_sensitive_attributes, (lambda do
+    select(column_names - %w(password_digest remember_digest))
+  end)
+  scope :order_by_created_at, ->{order created_at: :desc}
 
   has_secure_password
 

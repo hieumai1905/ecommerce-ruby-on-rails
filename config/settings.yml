@@ -3,6 +3,8 @@ pagy:
     per_page: 9
   bill:
     per_page: 5
+  user:
+    per_page: 8
 cart:
   size:
     default: 0
@@ -31,3 +33,8 @@ search_type:
   brand: "brand"
 product:
   product_top: 8
+account:
+  role:
+    title: "role"
+  status:
+    title: "status"

@@ -18,6 +18,39 @@ en:
         revenue_month: "Revenue month"
         revenue_year: "Revenue year"
       top_product: "Top selling products"
+      user_management:
+        title: "Users Management"
+        name: "Full Name"
+        email: "Email"
+        phone: "Phone"
+        role: "Role"
+        status: "Status"
+        created_date: "Created Date"
+        updated_date: "Updated Date"
+      attention:
+        title: "Attention"
+        content_1: "Click on the user role to change the user's role!"
+        content_2: "Click on the user status to change the user's status!"
+        content_3: "Click on the trash icon on each row to delete the user!"
+    account:
+      role:
+        admin: "Admin"
+        user: "User"
+      status:
+        active: "Active"
+        inactive: "Inactive"
+      delete:
+        current_account: "Cannot delete the user is logging in"
+        success: "User has been deleted successfully"
+        fail: "User has not been deleted successfully"
+        confirm: "Are you sure you want to delete this user? When you delete this user, all the information related to this user will be deleted."
+      update:
+        success: "User has been updated successfully"
+        fail: "User has not been updated successfully"
+        role: "Update role %{role} for user!"
+        status: "Update status %{status} for user!"
+        cannot_update_self: "Cannot update the user is logging in"
+        user_not_found: "User not found"
     home:
       title: "Home"
       welcome: "Welcome to our website"

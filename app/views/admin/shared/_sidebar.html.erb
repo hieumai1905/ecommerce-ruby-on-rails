@@ -7,7 +7,6 @@
             <input type="checkbox" name="open" id="open" checked>
             <label for="open" class="open">
               <i class="fa fa-bars" aria-hidden="true"></i>
-
             </label>
             <div class="menu">
               <ul>
@@ -24,7 +23,7 @@
                   <% end %>
                 </li>
                 <li>
-                  <%= link_to "#" do %>
+                  <%= link_to admin_users_path do %>
                     <i class="fa fa-user-circle-o" aria-hidden="true"></i>
                     <%= t("pages.admin.user_page") %>
                   <% end %>
@@ -48,7 +47,7 @@
                   <% end %>
                 </li>
                 <li>
-                  <%= link_to logout_path do %>
+                  <%= link_to logout_path, data: { "turbo-method": :delete } do %>
                     <i class="fa fa-sign-out" aria-hidden="true"></i>
                     <%= t("pages.header.logout") %>
                   <% end %>

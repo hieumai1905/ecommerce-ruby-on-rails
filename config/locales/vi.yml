@@ -18,6 +18,39 @@ vi:
         revenue_month: "Doanh thu tháng"
         revenue_year: "Doanh thu năm"
       top_product: "Top sản phẩm bán chạy"
+      user_management:
+        title: "Quản lý người dùng"
+        name: "Họ và tên"
+        email: "Email"
+        phone: "Số điện thoại"
+        role: "Quyền"
+        status: "Trạng thái"
+        created_date: "Ngày tạo"
+        updated_date: "Cập nhật cuối"
+      attention:
+        title: "Chú ý"
+        content_1: "Click vào role người dùng để thay đổi quyền cho người dùng!"
+        content_2: "Click vào trạng thái người dùng để thay đổi trạng thái cho người dùng!"
+        content_3: "Click vào biểu tượng thùng rác ở mỗi dòng để xoá người dùng!"
+    account:
+      role:
+        admin: "Người quản trị"
+        user: "Người dùng"
+      status:
+        active: "Hoạt động"
+        inactive: "Không hoạt động"
+      delete:
+        current_account: "Không thể xoá người dùng đang đăng nhập"
+        success: "Người dùng đã được xoá thành công"
+        fail: "Người dùng chưa được xoá thành công"
+        confirm: "Bạn có chắc chắn muốn xoá người dùng này không? Khi bạn xoá người dùng này, tất cả thông tin liên quan đến người dùng này sẽ bị xoá."
+      update:
+        success: "Người dùng đã được cập nhật thành công"
+        fail: "Người dùng chưa được cập nhật thành công"
+        role: "Cập nhật quyền %{role} cho người dùng!"
+        status: "Cập nhật trạng thái %{status} cho người dùng!"
+        cannot_update_self: "Không thể cập nhật người dùng đang đăng nhập"
+        user_not_found: "Không tìm thấy người dùng"
     home:
       title: "Trang chủ"
       welcome: "Chào mừng đến với trang web của chúng tôi"

@@ -15,6 +15,8 @@ Rails.application.routes.draw do
 
     namespace :admin do
       root "dashboard#index"
+
+      resources :users, only: %i(index update)
     end
 
     get "/carts", to: "carts#index"

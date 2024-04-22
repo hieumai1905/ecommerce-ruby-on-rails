@@ -47,25 +47,60 @@ module ProductsHelper
     end)
   end
 
-  def price_range_link start_price, end_price
-    start_price_format = number_to_currency(start_price, unit: "$",
-        precision: 0)
-    end_price_format = if end_price == Settings.product_detail.price_max
-                         "#{t('filter.product.above')} #{start_price_format}"
-                       else
-                         number_to_currency end_price, unit: "$",
-                              precision: 0
-                       end
-    link_to search_price_range_path(start: start_price, end: end_price),
-            class: "text-dark",
-            data: {"turbo_method": :get} do
-      if end_price == Settings.product_detail.price_max
-        "#{t('filter.product.above')} #{start_price_format}"
-      elsif end_price_format.nil?
-        start_price_format
-      else
-        "#{start_price_format} - #{end_price_format}"
-      end
+  def price_range_link start_price, end_price, name: nil, brand: nil,
+    category: nil, increment: nil
+    start_price_format = price_format start_price
+    end_price_format = price_format end_price
+    link_class = link_class_for_current_price_range start_price, end_price
+    link_content = link_content_for_price_range(start_price_format,
+                                                end_price_format)
+
+    link_to search_path(
+      name: name,
+      brand: brand,
+      category: category,
+      end_price: end_price,
+      start_price: start_price,
+      increment: increment
+    ), class: link_class, data: {"turbo_method": :get} do
+      link_content
     end
+  end
+
+  private
+
+  def price_format price
+    if price == Settings.product_detail.price_max
+      "#{t('filter.product.above')} #{
+        number_to_currency(Settings.product_detail.price_100, unit: '$',
+        precision: 0)}"
+    else
+      number_to_currency(price, unit: "$", precision: 0)
+    end
+  end
+
+  def link_class_for_current_price_range start_price, end_price
+    if start_price == params[:start_price].to_i &&
+       end_price == params[:end_price].to_i
+      "text-secondary font-weight-bold text-decoration-underline"
+    else
+      "text-dark"
+    end
+  end
+
+  def link_content_for_price_range start_price_format, end_price_format
+    if end_price_format.include?(t("filter.product.above"))
+      end_price_format
+    elsif end_price_format.nil?
+      start_price_format
+    else
+      "#{start_price_format} - #{end_price_format}"
+    end
+  end
+
+  def price_filter_span_class increment, type
+    class_names = %w(btn btn-outline-dark border rounded)
+    class_names << "active text-white" if increment == type
+    class_names.join(" ")
   end
 end

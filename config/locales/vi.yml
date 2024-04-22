@@ -156,6 +156,9 @@ vi:
       tags: "Nhãn"
       search: "Tìm kiếm sản phẩm"
       above: "Trên"
+      all: "Tất cả"
+      price_accenting: "Giá tăng dần"
+      price_descending: "Giá giảm dần"
   errors:
     login:
       invalid: "Email hoặc mật khẩu không hợp lệ"

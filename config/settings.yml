@@ -33,6 +33,11 @@ search_type:
   brand: "brand"
 product:
   product_top: 8
+  order_ASC: "ASC"
+  order_DESC: "DESC"
+  increment:
+    condition_true: "true"
+    condition_false: "false"
 account:
   role:
     title: "role"

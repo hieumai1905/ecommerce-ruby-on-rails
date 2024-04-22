@@ -4136,3 +4136,7 @@ ol {
     position: absolute;
   }
 }
+
+.text-decoration-underline{
+  text-decoration: underline;
+}

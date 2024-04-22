@@ -156,6 +156,9 @@ en:
       tags: "Tags"
       search: "Search products"
       above: "Above"
+      all: "All"
+      price_accenting: "Price ascending"
+      price_descending: "Price descending"
   errors:
     login:
       invalid: "Invalid email or password"

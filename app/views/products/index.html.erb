@@ -9,10 +9,23 @@
     <div class="row">
       <%= render "products/sidebar_shop" %>
       <div class="col-lg-9">
-        <div class="row">
+        <div class="row mb-4">
           <div class="col-lg-6 col-md-6 col-sm-6">
             <div class="shop__product__option__left">
-              <p><%= t("pages.product.show_title") %> 1– <%= @products.count %> <%= t("pages.product.result") %></p>
+              <span class="<%= price_filter_span_class(@increment, Settings.product.increment.condition_true) %>">
+                <%= link_to t("filter.product.price_accenting"),
+                            search_path(name: @name, category: @category, brand: @brand, start_price: @start_price,
+                                        end_price: @end_price, increment: true) %>
+              </span>
+              <span class="<%= price_filter_span_class(@increment, Settings.product.increment.condition_false) %>">
+                <%= link_to t("filter.product.price_descending"),
+                            search_path(name: @name, category: @category, brand: @brand, start_price: @start_price,
+                                        end_price: @end_price, increment: false)%>
+              </span>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-6 mb-2">
+            <div class="shop__product__option__left">
             </div>
           </div>
         </div>

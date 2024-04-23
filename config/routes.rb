@@ -24,7 +24,11 @@ Rails.application.routes.draw do
     patch "/carts/:product_detail_id", to: "carts#update", as: "update_cart_item"
     delete "/carts/:product_detail_id", to: "carts#destroy", as: "delete_cart_item"
 
-    resources :bills, only: %i(new create update)
+    resources :bills, only: %i(new create update) do
+      member do
+        get :repurchase, to: "repurchase#create"
+      end
+    end
 
     resources :histories, only: %i(index show)
   end

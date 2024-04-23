@@ -70,6 +70,8 @@ vi:
       quantity: "Số lượng"
       max_quantity: "Số lượng tối đa"
       quantity_sold: "Số lượng đã bán"
+      out_of_stock: "Sản phẩm %{name}, màu sắc %{color}, kích cỡ %{size} đã hết hàng"
+      buy_max_quantity: "Sản phẩm %{name}, màu sắc %{color}, kích cỡ %{size} chỉ có thể mua tối đa %{max_quantity} sản phẩm"
       attributes:
         name: "Tên sản phẩm"
         brand: "Thương hiệu"

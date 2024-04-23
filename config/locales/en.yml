@@ -70,6 +70,8 @@ en:
       quantity: "Quantity"
       max_quantity: "Max quantity"
       quantity_sold: "Quantity sold"
+      out_of_stock: "Product %{name}, color %{color}, size %{size} is out of stock"
+      buy_max_quantity: "Product %{name}, color %{color}, size %{size} can only buy a maximum of %{max_quantity} products"
       attributes:
         name: "Product Name"
         brand: "Brand"

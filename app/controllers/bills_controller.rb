@@ -1,7 +1,8 @@
 class BillsController < ApplicationController
+  before_action :logged_in_user, :load_detail_bill, only: %i(new create update)
   before_action :get_address, only: :create
   before_action :check_cart, :new_bill, only: :new
-  before_action :load_detail_bill, only: %i(new create)
+  before_action :load_bill, :check_bill_process, only: :update
 
   def new; end
 
@@ -21,6 +22,18 @@ class BillsController < ApplicationController
     end
   rescue ActiveRecord::Rollback
     handle_error_update
+  end
+
+  def update
+    ActiveRecord::Base.transaction do
+      cancel_bill
+      handle_successful_update
+      flash[:success] = t("pages.bill.cancel_success")
+      redirect_to histories_path
+    end
+  rescue ActiveRecord::RecordNotFound
+    flash[:danger] = t("pages.bill.not_found")
+    redirect_to histories_path
   end
 
   private
@@ -78,6 +91,7 @@ class BillsController < ApplicationController
       amount: @sum_total,
       description: bill_params[:order_notes],
       address: @address,
+      status: Bill.statuses[:Processing],
       payment_method: bill_params[:payment_method]
     )
   end
@@ -132,5 +146,33 @@ class BillsController < ApplicationController
 
   def new_bill
     @new_bill = Bill.new
+  end
+
+  def cancel_bill
+    @bill.update!(status: Bill.statuses[:Canceled])
+  end
+
+  def handle_successful_update
+    @bill.bill_details.each do |bill_detail|
+      product_detail = bill_detail.product_detail
+      product_detail.update!(
+        quantity: product_detail.quantity + bill_detail.quantity
+      )
+    end
+  end
+
+  def load_bill
+    @bill = Bill.find_by id: params[:id]
+    return if @bill
+
+    flash[:danger] = t "pages.bill.not_found"
+    redirect_to bills_path
+  end
+
+  def check_bill_process
+    return if @bill.Processing?
+
+    flash[:danger] = t "pages.bill.cancel_failure"
+    redirect_to bills_path
   end
 end

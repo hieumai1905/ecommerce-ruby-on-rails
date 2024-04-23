@@ -35,6 +35,11 @@ class Bill < ApplicationRecord
     bank_transfer: "bank_transfer",
     paypal: "paypal"
   }
+  enum status: {
+    Processing: 0,
+    Completed: 1,
+    Canceled: -1
+  }
 
   def payment_method_translation
     I18n.t("pages.payment_methods.#{payment_method}", locale: I18n.locale)

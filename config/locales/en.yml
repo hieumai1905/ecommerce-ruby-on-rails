@@ -131,10 +131,16 @@ en:
         title: "Status"
         completed: "Completed"
         canceled: "Canceled"
+        processing: "Processing"
+      review: "Review"
+      cancel: "Cancel"
       repurchase: "Repurchase"
       details: "Details"
       create_success: "Order has been created successfully"
       create_failure: "Order has not been created successfully"
+      cancel_success: "Order has been canceled successfully"
+      cancel_confirm: "Are you sure you want to cancel this order?"
+      cancel_failure: "Order cannot be cancel"
       history:
         title: "History Order"
       validates:

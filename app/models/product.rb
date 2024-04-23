@@ -37,6 +37,7 @@ class Product < ApplicationRecord
   scope :find_top_sale, (lambda do
     select("products.*, SUM(bill_details.quantity) AS total_quantity")
       .joins(product_details: {bill_details: :bill})
+      .where("bills.status = ?", Bill.statuses[:Completed])
       .group("products.id")
       .order("total_quantity DESC")
       .limit(Settings.product.product_top)

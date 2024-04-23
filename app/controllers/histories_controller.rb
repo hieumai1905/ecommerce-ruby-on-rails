@@ -1,4 +1,5 @@
 class HistoriesController < ApplicationController
+  before_action :logged_in_user
   before_action :load_bills, only: %i(index show)
   before_action :build_bill_items, only: :show
 

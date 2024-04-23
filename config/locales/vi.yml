@@ -131,10 +131,16 @@ vi:
         title: "Trạng thái"
         completed: "Đã hoàn thành"
         canceled: "Đã hủy"
+        processing: "Đang xử lý"
+      review: "Đánh giá"
+      cancel: "Hủy đơn hàng"
       repurchase: "Mua lại"
       details: "Chi tiết"
       create_success: "Đơn hàng của bạn đã được tạo thành công"
       create_failure: "Đơn hàng của bạn chưa được tạo thành công"
+      cancel_success: "Đơn hàng của bạn đã được hủy thành công"
+      cancel_confirm: "Bạn có chắc chắn muốn hủy đơn hàng này không?"
+      cancel_failure: "Đơn hàng của bạn không thể hủy"
       history:
         title: "Lịch sử đơn hàng"
       validates:

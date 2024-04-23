@@ -21,6 +21,11 @@ bill:
     max_length: 255
   status:
     completed: 1
+order:
+  status:
+    processing: "Processing"
+    canceled: "Canceled"
+    completed: "Completed"
 product_detail:
   price_0: 0
   price_20: 20

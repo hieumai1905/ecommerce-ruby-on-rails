@@ -16,6 +16,8 @@ Rails.application.routes.draw do
       root "dashboard#index"
 
       resources :users, only: %i(index update)
+
+      resources :orders, only: %i(index update delete)
     end
 
     get "/carts", to: "carts#index"

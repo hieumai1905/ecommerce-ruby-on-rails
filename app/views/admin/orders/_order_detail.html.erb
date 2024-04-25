@@ -1,0 +1,49 @@
+<button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#order-detail-<%= order.id %>">
+  <i class="fa fa-info" aria-hidden="true"></i>
+</button>
+<div class="modal" id="order-detail-<%= order.id %>">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title font-weight-bold"><%= t("pages.admin.order.order_detail") %></h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <h5><%= t("pages.admin.order.customer_info") %></h5>
+        <hr class="mb-2">
+        <div>
+          <div class="pl-3">
+            <p><strong><%= t("pages.admin.order.name_customer") %>: </strong><%= order.account.name %></p>
+            <p><strong><%= t("pages.admin.user_management.email") %>: </strong><%= order.account.email %></p>
+            <p><strong><%= t("pages.admin.user_management.phone") %>: </strong><%= order.account.phone %></p>
+            <p><strong><%= t("pages.admin.order.created_date") %>: </strong><%= order.created_at %></p>
+            <p><strong><%= t("pages.bill.status.title") %>: </strong><%= status_label(order.status) %></p>
+            <p><strong><%= t("pages.payment_methods.title") %>: </strong><%= order.payment_method_translation %></p>
+            <p><strong><%= t("pages.admin.order.address") %>: </strong><%= order.address %></p>
+            <p><strong><%= t("pages.cart.checkout.order_notes.title") %>: </strong><%= order.description %></p>
+          </div>
+          <hr>
+        </div>
+        <h5 class="mb-2"><%= t("pages.admin.product_page") %></h5>
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th class="text-center"><%= t("pages.admin.order.detail_id") %></th>
+            <th class="text-center"><%= t("pages.product.quantity")%></th>
+            <th class="text-right"><%= t("pages.cart.total") %></th>
+          </tr>
+          </thead>
+          <tbody>
+          <%= render partial: "admin/orders/detail", collection: order.bill_details, as: :detail  %>
+          </tbody>
+        </table>
+        <p class="text-right"><%= t("pages.cart.sum_total") %>: <strong><%= number_to_currency(order.amount) %></strong></p>
+      </div>
+      <div class="modal-footer">
+        <div>
+          <%= order_handle_buttons order %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

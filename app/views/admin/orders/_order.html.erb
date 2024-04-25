@@ -1,0 +1,10 @@
+<tr>
+  <td class="text-center"><%= order.id %></td>
+  <td class="text-center"><%= order.account_id %></td>
+  <td class="text-center"><%= formatted_created_at(order.created_at) %></td>
+  <td class="text-center"><%= formatted_created_at(order.updated_at) %></td>
+  <td class="text-center"><%= status_label(order.status) %></td>
+  <td class="cart__close">
+    <%= render partial: "admin/orders/order_detail", locals:  {order: order}%>
+  </td>
+</tr>

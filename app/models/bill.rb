@@ -13,7 +13,7 @@ class Bill < ApplicationRecord
 
   scope :find_all_by_account_id, ->(account_id){where account_id: account_id}
   scope :order_by_created_at, ->{order created_at: :desc}
-  scope :find_by_status, ->(status){where status: status}
+  scope :by_status, ->(status){where status: status}
   scope :current_month_revenue, (lambda do
     where("EXTRACT(YEAR_MONTH FROM created_at) = ?",
           Date.current.strftime("%Y%m"))
@@ -36,12 +36,34 @@ class Bill < ApplicationRecord
     paypal: "paypal"
   }
   enum status: {
-    Processing: 0,
-    Completed: 1,
-    Canceled: -1
+    canceled: -1,
+    pending: 0,
+    confirmed: 1,
+    delivering: 2,
+    completed: 3
   }
 
   def payment_method_translation
     I18n.t("pages.payment_methods.#{payment_method}", locale: I18n.locale)
+  end
+
+  def allowed_to_cancel?
+    pending? || confirmed? || delivering?
+  end
+
+  def update_status_order status
+    update! status: status
+  end
+
+  def pending?
+    status == "pending"
+  end
+
+  def confirmed?
+    status == "confirmed"
+  end
+
+  def delivering?
+    status == "delivering"
   end
 end

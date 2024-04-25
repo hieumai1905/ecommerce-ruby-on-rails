@@ -8,11 +8,22 @@ en:
       title: "Admin page"
       dashboard: "Dashboard"
       product_page: "Products"
-      category_page: "Categorys"
-      brand_page: "Brands"
+      order_page: "Orders"
       banner_page: "Banners"
       user_page: "Users"
       bill_page: "Bills"
+      order:
+        name_customer: "Customer name"
+        state: "Order state"
+        created_date: "Created date"
+        address: "Address"
+        confirm_order: "Confirm order"
+        cancel_order: "Cancel order"
+        order_detail: "Order detail"
+        customer_info: "Customer information"
+        completed_order: "Completed order"
+        delivery_order: "Delivery order"
+        detail_id: "Detail ID"
       count:
         user: "Users"
         revenue_month: "Revenue month"
@@ -27,6 +38,19 @@ en:
         status: "Status"
         created_date: "Created Date"
         updated_date: "Updated Date"
+      order_management:
+        title: "Orders Management"
+        id: "Order ID"
+        user_id: "User ID"
+        total: "Total"
+        created_date: "Created Date"
+        updated_date: "Updated Date"
+      update:
+        order:
+          status:
+            update_success: "The order has moved to %{status} status!"
+            update_error: "You can only %{action} order when the order is in %{status} status!"
+            cancel_error: "The order cannot be canceled when the order has %{status} status!"
       attention:
         title: "Attention"
         content_1: "Click on the user role to change the user's role!"
@@ -133,7 +157,18 @@ en:
         title: "Status"
         completed: "Completed"
         canceled: "Canceled"
-        processing: "Processing"
+        confirmed: "Confirmed"
+        pending: "Pending"
+        delivering: "Delivering"
+      action:
+        canceled: "canceled"
+        cancel: "cancel order"
+        confirm: "confirm"
+        confirmed: "confirmed"
+        delivery: "delivery"
+        delivering: "delivering"
+        complete: "complete"
+        completed: "completed"
       review: "Review"
       cancel: "Cancel"
       repurchase: "Repurchase"
@@ -141,6 +176,8 @@ en:
       create_success: "Order has been created successfully"
       create_failure: "Order has not been created successfully"
       cancel_success: "Order has been canceled successfully"
+      cancel_order_confirm: "Are you sure you want to cancel this order? When you cancel an order, it may affect the customer experience!"
+      change_status_order: "Are you sure you want to %{action} this order? When you %{action} this order, the order will be changed to %{status}!"
       cancel_confirm: "Are you sure you want to cancel this order?"
       cancel_failure: "Order cannot be cancel"
       history:
@@ -172,3 +209,6 @@ en:
       invalid: "Invalid email or password"
       not_active: "Your account is not active"
       forbidden: "You are not authorized to access this page, please login with an authorized account"
+    update:
+      order:
+        status_invalid: "Order status is invalid"

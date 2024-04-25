@@ -4140,3 +4140,11 @@ ol {
 .text-decoration-underline{
   text-decoration: underline;
 }
+
+.modal-dialog {
+  max-width: 800px;
+}
+.modal-content {
+  max-width: 900px;
+  margin: 0 auto;
+}

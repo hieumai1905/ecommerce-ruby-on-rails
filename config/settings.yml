@@ -3,6 +3,8 @@ pagy:
     per_page: 9
   bill:
     per_page: 5
+  order:
+    per_page: 8
   user:
     per_page: 8
 cart:
@@ -23,9 +25,17 @@ bill:
     completed: 1
 order:
   status:
-    processing: "Processing"
-    canceled: "Canceled"
-    completed: "Completed"
+    pending: "pending"
+    canceled: "canceled"
+    completed: "completed"
+    confirmed: "confirmed"
+    delivering: "delivering"
+  action:
+    cancel: "cancel"
+    confirm: "confirm"
+    delivery: "delivery"
+    complete: "complete"
+    delete: "delete"
 product_detail:
   price_0: 0
   price_20: 20

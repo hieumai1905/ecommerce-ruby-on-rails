@@ -24,9 +24,13 @@ module HistoriesHelper
 
   def status_class status
     case status
+    when Settings.order.status.pending
+      "text-secondary"
     when Settings.order.status.completed
       "text-success"
-    when Settings.order.status.processing
+    when Settings.order.status.delivering
+      "text-warning"
+    when Settings.order.status.confirmed
       "text-primary"
     else
       "text-danger"
@@ -42,7 +46,7 @@ module HistoriesHelper
     case item.status
     when Settings.order.status.completed
       [review_button, repurchase_button(item)]
-    when Settings.order.status.processing
+    when Settings.order.status.pending
       [cancel_button(item)]
     else
       [repurchase_button(item)]

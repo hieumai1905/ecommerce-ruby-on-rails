@@ -91,7 +91,7 @@ class BillsController < ApplicationController
       amount: @sum_total,
       description: bill_params[:order_notes],
       address: @address,
-      status: Bill.statuses[:Processing],
+      status: Bill.statuses[:pending],
       payment_method: bill_params[:payment_method]
     )
   end
@@ -170,7 +170,7 @@ class BillsController < ApplicationController
   end
 
   def check_bill_process
-    return if @bill.Processing?
+    return if @bill.pending?
 
     flash[:danger] = t "pages.bill.cancel_failure"
     redirect_to bills_path

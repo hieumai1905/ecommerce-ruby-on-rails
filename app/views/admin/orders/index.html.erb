@@ -1,0 +1,37 @@
+<div class="col-sm-10 mt-5">
+  <div class="white-box mt-5 bg-white pl-5 ps-5 pt-2">
+    <h3 class="box-title mb-3 mt-4 font-weight-bold"><%= t("pages.admin.order_management.title") %></h3>
+    <div class="d-flex">
+      <h6 class="mt-2 font-weight-bold ml-1"><%= (t("pages.bill.status.title")).upcase %>: &ensp;</h6>
+      <div class="mb-3">
+        <%= form_with url: admin_orders_path, method: :get, remote: true do |f| %>
+          <%= f.select :status, Bill.statuses.keys.map { |status| [t("pages.bill.status.#{status.downcase}"), status] },
+                       { selected: @status }, { class: 'p-1', onchange: 'this.form.submit();' } %>
+        <% end %>
+      </div>
+    </div>
+    <div class="row mb-2">
+      <div class="col-lg-6 col-md-6">
+        <%= render "shared/alert_message" %>
+      </div>
+    </div>
+    <div class="table-responsive">
+      <table class="table text-nowrap mt-2">
+        <thead>
+        <tr>
+          <th class="border-top-0 text-center"><%= t("pages.admin.order_management.id") %></th>
+          <th class="border-top-0 text-center"><%= t("pages.admin.order_management.user_id") %></th>
+          <th class="border-top-0 text-center"><%= t("pages.admin.order_management.created_date") %></th>
+          <th class="border-top-0 text-center"><%= t("pages.admin.order_management.updated_date") %></th>
+          <th class="border-top-0 text-center"><%= t("pages.bill.status.title") %></th>
+          <th class="border-top-0 text-center"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <%= render partial: "admin/orders/order", collection: @orders %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <%= render "shared/paging" %>
+</div>

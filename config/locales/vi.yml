@@ -8,11 +8,22 @@ vi:
       title: "Trang quản trị"
       dashboard: "Trang chủ"
       product_page: "Sản phẩm"
-      category_page: "Danh mục"
-      brand_page: "Thương hiệu"
+      order_page: "Đơn hàng"
       banner_page: "Banner"
       user_page: "Người dùng"
       bill_page: "Đơn hàng"
+      order:
+        name_customer: "Tên khách hàng"
+        state: "Tình trạng đơn hàng"
+        created_date: "Thời gian mua"
+        address: "Địa chỉ"
+        confirm_order: "Xác nhận đơn hàng"
+        cancel_order: "Hủy đơn hàng"
+        order_detail: "Chi tiết đơn hàng"
+        customer_info: "Thông tin khách hàng"
+        completed_order: "Hoàn thành đơn hàng"
+        delivery_order: "Giao hàng"
+        detail_id: "Mã chi tiết"
       count:
         user: "Người dùng khả dụng"
         revenue_month: "Doanh thu tháng"
@@ -27,6 +38,19 @@ vi:
         status: "Trạng thái"
         created_date: "Ngày tạo"
         updated_date: "Cập nhật cuối"
+      order_management:
+        title: "Quản lý đơn hàng"
+        id: "Mã đơn hàng"
+        user_id: "Mã người dùng"
+        total: "Tổng tiền"
+        created_date: "Ngày tạo"
+        updated_date: "Cập nhật cuối"
+      update:
+        order:
+          status:
+            update_success: "Đơn hàng đã chuyển sang trạng thái %{status}!"
+            update_error: "Chỉ có thể %{action} khi đơn hàng ở trạng thái %{status}!"
+            cancel_error: "Đơn hàng không thể hủy khi đơn hàng đã %{status}!"
       attention:
         title: "Chú ý"
         content_1: "Click vào role người dùng để thay đổi quyền cho người dùng!"
@@ -133,7 +157,18 @@ vi:
         title: "Trạng thái"
         completed: "Đã hoàn thành"
         canceled: "Đã hủy"
-        processing: "Đang xử lý"
+        confirmed: "Đã xác nhận"
+        pending: "Chờ xác nhận"
+        delivering: "Đang giao hàng"
+      action:
+        canceled: "đã huỷ"
+        cancel: "huỷ đơn hàng"
+        confirm: "xác nhận"
+        confirmed: "đã xác nhận"
+        delivery: "giao hàng"
+        delivering: "đang giao hàng"
+        complete: "hoàn thành"
+        completed: "đã hoàn thành"
       review: "Đánh giá"
       cancel: "Hủy đơn hàng"
       repurchase: "Mua lại"
@@ -141,6 +176,8 @@ vi:
       create_success: "Đơn hàng của bạn đã được tạo thành công"
       create_failure: "Đơn hàng của bạn chưa được tạo thành công"
       cancel_success: "Đơn hàng của bạn đã được hủy thành công"
+      cancel_order_confirm: "Bạn có chắc chắn muốn hủy đơn hàng này không? Khi bạn hủy đơn hàng, có thể sẽ ảnh hưởng đến trải nghiệm của khách hàng!"
+      change_status_order: "Bạn có chắc chắn muốn %{action} đơn hàng này không? Khi bạn %{action} đơn hàng này,đơn hàng sẽ được chuyển sang trạng thái %{status}!"
       cancel_confirm: "Bạn có chắc chắn muốn hủy đơn hàng này không?"
       cancel_failure: "Đơn hàng của bạn không thể hủy"
       history:
@@ -172,3 +209,6 @@ vi:
       invalid: "Email hoặc mật khẩu không hợp lệ"
       not_active: "Tài khoản của bạn không hoạt động"
       forbidden: "Bạn không có quyền truy cập trang này, vui lòng đăng nhập với tài khoản có quyền truy cập"
+    update:
+      order:
+        status_invalid: "Trạng thái đơn hàng không hợp lệ"

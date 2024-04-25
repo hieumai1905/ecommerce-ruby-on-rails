@@ -22,6 +22,7 @@ class FiltersController < ApplicationController
                        .search_by_brand(@brand)
                        .search_by_category(@category)
                        .search_by_price_range(@start_price, @end_price)
+                       .with_total_quantity
     @products = if @increment.present?
                   @products.order_by_product_price(order_param)
                 else

@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
   end
 
   def load_data
-    @pagy, @products = pagy(Product.order_by_name,
+    @pagy, @products = pagy(Product.order_by_name.with_total_quantity,
                             items: Settings.pagy.product.per_page)
     @brands = Product.get_brands
     @categories = Product.get_categories

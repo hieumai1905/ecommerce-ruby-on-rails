@@ -1,4 +1,6 @@
-<div class="col-lg-4 col-md-6 col-sm-6">
+<% col_class = (col_number == Settings.col.col_4 ? 'col-lg-4' : 'col-lg-3') %>
+
+<div class="<%= col_class %> col-md-6 col-sm-12">
   <div class="product__item">
     <div class="product__item__pic set-bg">
       <%= image_tag(product.product_photos.first.photo_path) %>
@@ -11,7 +13,10 @@
       </ul>
     </div>
     <div class="product__item__text">
-      <h6><%= product.product_name %></h6>
+      <div class="d-flex justify-content-between">
+        <h6><%= product.product_name %></h6>
+        <p class="text-right mx-2 small"><i><%= t("pages.product.sold") %> <%= product.total_quantity%></i></p>
+      </div>
       <%= link_to t("pages.product.detail"), product_path(product) %>
       <%= render_price_range(product) %>
       <%= render_color_select product %>

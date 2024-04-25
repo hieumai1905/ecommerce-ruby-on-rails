@@ -7,6 +7,9 @@ pagy:
     per_page: 8
   user:
     per_page: 8
+col:
+  col_4: 4
+  col_3: 3
 cart:
   size:
     default: 0

@@ -20,7 +20,7 @@
               <span class="<%= price_filter_span_class(@increment, Settings.product.increment.condition_false) %>">
                 <%= link_to t("filter.product.price_descending"),
                             search_path(name: @name, category: @category, brand: @brand, start_price: @start_price,
-                                        end_price: @end_price, increment: false)%>
+                                        end_price: @end_price, increment: false) %>
               </span>
             </div>
           </div>
@@ -30,7 +30,7 @@
           </div>
         </div>
         <div class="row">
-          <%= render @products || t("pages.product.empty") %>
+          <%= render partial: "products/product", collection: @products, locals: { col_number: Settings.col.col_4 } %>
         </div>
         <%= render "shared/paging" %>
       </div>

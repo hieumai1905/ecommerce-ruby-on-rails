@@ -1,0 +1,14 @@
+<section class="product spad mt-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <ul class="filter__controls">
+          <li class="active" data-filter="*"><%= t("pages.product.best_seller") %></li>
+        </ul>
+      </div>
+    </div>
+    <div class="row product__filter">
+        <%= render partial: "products/product", collection: @top_products, as: :product, locals: {col_number: Settings.col.col_3}%>
+    </div>
+  </div>
+</section>

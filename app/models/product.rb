@@ -23,6 +23,13 @@ class Product < ApplicationRecord
       all
     end
   }
+  scope :with_total_quantity, (lambda do
+    select("products.*, COALESCE(SUM(bill_details.quantity),
+                                  0) AS total_quantity")
+      .left_joins(product_details: {bill_details: :bill})
+      .where("bills.status = ? OR bills.id IS NULL", Bill.statuses[:completed])
+      .group("products.id")
+  end)
   scope :order_by_product_price, lambda {|order_param|
     order = order_param.to_s.upcase
     joins(:product_details)
@@ -37,7 +44,7 @@ class Product < ApplicationRecord
   scope :find_top_sale, (lambda do
     select("products.*, SUM(bill_details.quantity) AS total_quantity")
       .joins(product_details: {bill_details: :bill})
-      .where("bills.status = ?", Bill.statuses[:Completed])
+      .where("bills.status = ?", Bill.statuses[:completed])
       .group("products.id")
       .order("total_quantity DESC")
       .limit(Settings.product.product_top)

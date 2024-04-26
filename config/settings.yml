@@ -28,6 +28,7 @@ bill:
     completed: 1
 order:
   status:
+    all: "all"
     pending: "pending"
     canceled: "canceled"
     completed: "completed"

@@ -5,8 +5,7 @@
       <h6 class="mt-2 font-weight-bold ml-1"><%= (t("pages.bill.status.title")).upcase %>: &ensp;</h6>
       <div class="mb-3">
         <%= form_with url: admin_orders_path, method: :get, remote: true do |f| %>
-          <%= f.select :status, Bill.statuses.keys.map { |status| [t("pages.bill.status.#{status.downcase}"), status] },
-                       { selected: @status }, { class: 'p-1', onchange: 'this.form.submit();' } %>
+          <%= f.select :status, options_for_select(bill_status_options, @status), {}, { class: "p-1", onchange: "this.form.submit();" } %>
         <% end %>
       </div>
     </div>

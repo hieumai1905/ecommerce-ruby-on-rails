@@ -162,6 +162,7 @@ vi:
         confirmed: "Đã xác nhận"
         pending: "Chờ xác nhận"
         delivering: "Đang giao hàng"
+        all: "Tất cả"
       action:
         canceled: "đã huỷ"
         cancel: "huỷ đơn hàng"

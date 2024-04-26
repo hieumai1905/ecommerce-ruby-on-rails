@@ -162,6 +162,7 @@ en:
         confirmed: "Confirmed"
         pending: "Pending"
         delivering: "Delivering"
+        all: "All"
       action:
         canceled: "canceled"
         cancel: "cancel order"

@@ -1,4 +1,13 @@
 module Admin::OrdersHelper
+  def bill_status_options
+    [[t("pages.bill.status.all"), Settings.order.status.all]] +
+      Bill.statuses.keys.map do |status|
+        [
+          t("pages.bill.status.#{status.downcase}"), status
+        ]
+      end
+  end
+
   def order_handle_buttons order
     return if order.canceled? || order.completed?
 

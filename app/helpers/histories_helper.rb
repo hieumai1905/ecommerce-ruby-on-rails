@@ -43,18 +43,11 @@ module HistoriesHelper
   end
 
   def additional_buttons item
-    case item.status
-    when Settings.order.status.completed
-      [review_button, repurchase_button(item)]
-    when Settings.order.status.pending
+    if item.status == Settings.order.status.pending
       [cancel_button(item)]
     else
       [repurchase_button(item)]
     end
-  end
-
-  def review_button
-    link_to(t("pages.bill.review"), "#", class: "btn btn-success ml-1")
   end
 
   def repurchase_button item

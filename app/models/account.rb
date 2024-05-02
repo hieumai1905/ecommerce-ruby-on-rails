@@ -2,7 +2,7 @@ class Account < ApplicationRecord
   attr_accessor :remember_token
 
   has_many :bills, dependent: :destroy
-  has_many :evaluations, dependent: :destroy
+  has_many :reviews, dependent: :destroy
 
   scope :current_accounts_count, ->{where(is_active: true).count}
   scope :without_sensitive_attributes, (lambda do

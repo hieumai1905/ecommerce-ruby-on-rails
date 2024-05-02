@@ -9,7 +9,7 @@
       </tr>
       </thead>
       <tbody>
-      <%= render partial: "detail_item" %>
+      <%= render partial: "detail_item", collection: @bill_items, as: :item %>
       </tbody>
     </table>
   </div>

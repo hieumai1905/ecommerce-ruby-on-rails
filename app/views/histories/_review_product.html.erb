@@ -1,0 +1,40 @@
+<button type="button" onclick="getDataReview(<%=@current_bill.id %>, <%= item[:product_detail_id] %>)" class="btn btn-success text-white" data-toggle="modal" data-target="#review-product-<%= item[:product_detail_id] %>">
+  <i class="fa fa-star-o" aria-hidden="true"></i>
+</button>
+<div class="modal fade" id="review-product-<%= item[:product_detail_id] %>" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-custom">
+    <div class="modal-content modal-content-custom">
+      <div class="modal-header">
+        <h4 class="modal-title" id="staticBackdropLabel"><%= t("pages.review.heading") %></h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <%= form_with(url: create_review_bill_path, method: :post, remote: true) do |form| %>
+        <div class="modal-body">
+          <div class="form-group">
+            <%= form.label t("pages.review.comment") %>
+            <%= form.text_area :comment, class: "form-control", id: "review_content", rows: 3 %>
+          </div>
+          <div class="form-group">
+            <%= form.hidden_field :rating, value: 5, id: "rate_value" %>
+            <%= form.hidden_field :product_detail_id, value: item[:product_detail_id] %>
+            <%= form.hidden_field :bill_id, value: @current_bill.id %>
+            <div class="text-warning rating justify-content-center" id="review_rate">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <%= form.submit t("pages.review.title"), class: "btn btn-primary" %>
+          <button type="button" class="btn btn-danger text-white" data-dismiss="modal"><%= t("pages.review.close") %></button>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<%= javascript_include_tag 'custom/review', 'data-turbolinks-track': 'reload' %>

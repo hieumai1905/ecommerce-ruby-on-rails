@@ -29,6 +29,9 @@ Rails.application.routes.draw do
     resources :bills, only: %i(new create update) do
       member do
         get :repurchase, to: "repurchase#create"
+
+        get "/reviews/products/:product_detail_id", to: "reviews#show", as: "load_review"
+        post "/reviews", to: "reviews#create", as: "create_review"
       end
     end
 

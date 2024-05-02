@@ -150,6 +150,13 @@ vi:
       confirm_delete_item: "Bạn có chắc chắn muốn xóa sản phẩm này không?"
       deleted: "Sản phẩm đã được xóa thành công"
       insufficient_quantity: "Bạn đã có một số sản phẩm trong giỏ hàng vượt quá số lượng tồn kho"
+    review:
+      title: "Đánh giá"
+      heading: "Đánh giá sản phẩm"
+      comment: "Nhận xét"
+      close: "Đóng"
+      success: "Đánh giá thành công"
+      fail: "Đánh giá thất bại"
     bill:
       id: "Mã đơn hàng"
       order_date: "Ngày đặt hàng"

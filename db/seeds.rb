@@ -21,27 +21,6 @@ Account.create!(name: "ADMIN",
     password: password,
     password_confirmation: password
   )
-
-  # Seed data for Bill bills
-  3.times do
-    bill = account.bills.create!(
-      created_at: Faker::Time.between(from: 1.month.ago, to: Date.today),
-      amount: Faker::Commerce.price,
-      payment_method: Faker::Commerce.product_name,
-      status: Faker::Boolean.boolean,
-      description: Faker::Lorem.paragraph,
-      address: Faker::Address.full_address
-    )
-
-    # Seed data for Evaluation
-    Evaluation.create!(
-      content: Faker::Lorem.sentence,
-      comment_at: Faker::Time.between(from: 1.month.ago, to: Date.today),
-      update_at: Faker::Time.between(from: 1.month.ago, to: Date.today),
-      account_id: account.id,
-      bill_id: bill.id
-    )
-  end
 end
 
 # Seed data for product

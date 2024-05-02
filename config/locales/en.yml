@@ -150,6 +150,13 @@ en:
       confirm_delete_item: "Are you sure you want to delete this product?"
       deleted: "Product has been deleted successfully"
       insufficient_quantity: "You have some products in the cart exceed the stock quantity"
+    review:
+      title: "Reviews"
+      heading: "Review Product"
+      comment: "Comment"
+      close: "Close"
+      success: "Review successfully"
+      fail: "Review failed"
     bill:
       id: "ID"
       order_date: "Order Date"

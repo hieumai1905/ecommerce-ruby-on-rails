@@ -4148,3 +4148,11 @@ ol {
   max-width: 900px;
   margin: 0 auto;
 }
+
+.modal-dialog-custom {
+  max-width: 600px;
+}
+.modal-content-custom {
+  max-width: 700px;
+  margin: 0 auto;
+}

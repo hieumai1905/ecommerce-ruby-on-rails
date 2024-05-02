@@ -27,13 +27,15 @@ class HistoriesController < ApplicationController
   def build_bill_item product_detail, bill_detail
     total_price = product_detail.price * bill_detail.quantity
     {
+      product_detail_id: product_detail.id,
       color: product_detail.color,
       size: product_detail.size,
       quantity: bill_detail.quantity,
       product_name: product_detail.product_name,
       price: bill_detail.price,
       photo: product_detail.product_photos.first,
-      total_price: total_price
+      total_price: total_price,
+      status_bill: bill_detail.bill.status
     }
   end
 

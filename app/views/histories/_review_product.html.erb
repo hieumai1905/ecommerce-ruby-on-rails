@@ -1,0 +1,49 @@
+<button type="button" onclick="getDataReview()" class="btn btn-success text-white" data-toggle="modal" data-target="#review-product-<%= item[:product_detail_id] %>">
+  <i class="fa fa-star-o" aria-hidden="true"></i>
+</button>
+<div class="modal fade" id="review-product-<%= item[:product_detail_id] %>" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-custom">
+    <div class="modal-content modal-content-custom">
+      <div class="modal-header">
+        <h4 class="modal-title" id="staticBackdropLabel">Đánh giá sản phẩm</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">Nhận xét</label>
+          <textarea class="form-control" id="review_content" rows="3"></textarea>
+        </div>
+        <div class="form-group">
+          <div class="text-warning rating justify-content-center" id="review_rate">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-o"></i>
+            <i class="fa fa-star-o"></i>
+            <i class="fa fa-star-o"></i>
+            <i class="fa fa-star-o"></i>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Save</button>
+        <button type="button" class="btn btn-danger text-white" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  var url = '/reviews/bills/<%= item[:bill_id] %>/products/<%= item[:product_detail_id] %>';
+  function getDataReview() {
+    $.ajax({
+      url: url,
+      type: 'GET',
+      success: function (data) {
+        console.log(data);
+      },
+      error: function () {
+        console.log('error');
+      }
+    });
+  }
+</script>

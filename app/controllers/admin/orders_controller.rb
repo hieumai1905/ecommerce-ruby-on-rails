@@ -82,6 +82,10 @@ class Admin::OrdersController < Admin::AdminController
     redirect_to admin_orders_path
   end
 
+  def update_status_order status
+    @bill.update! status: status
+  end
+
   def handle_successful_canceled
     @bill.bill_details.each do |bill_detail|
       product_detail = bill_detail.product_detail

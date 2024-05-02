@@ -1,6 +1,7 @@
 class Product < ApplicationRecord
   has_many :product_photos, dependent: :destroy
   has_many :product_details, dependent: :destroy
+  has_many :reviews, dependent: :destroy
 
   scope :order_by_name, ->{order :product_name}
   scope :get_brands, ->{select(:brand).distinct.order :brand}

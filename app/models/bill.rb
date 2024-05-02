@@ -1,6 +1,7 @@
 class Bill < ApplicationRecord
   belongs_to :account
   has_many :bill_details, dependent: :destroy
+  has_many :reviews, dependent: :destroy
 
   validates :amount, presence: {message: I18n.t("pages.bill.validates.amount")},
             numericality: {greater_than: Settings.bill.amount.min}

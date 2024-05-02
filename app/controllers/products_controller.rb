@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   before_action :load_product, only: %i(show details)
   before_action :load_data, only: :index
+  before_action :load_review, only: :show
   def index; end
 
   def show; end
@@ -20,5 +21,9 @@ class ProductsController < ApplicationController
     return if @product
 
     redirect_to shop_path
+  end
+
+  def load_review
+    @reviews = @product.reviews
   end
 end

@@ -43,8 +43,27 @@ en:
         id: "Order ID"
         user_id: "User ID"
         total: "Total"
+      product_management:
+        all: "All Product Details"
+        update_title: "Update Product"
+        detail_product_items: "Product Details List"
+        title: "Products Management"
+        id: "Product ID"
+        name: "Product Name"
+        category: "Category"
+        brand: "Brand"
         created_date: "Created Date"
         updated_date: "Updated Date"
+        description: "Description"
+        photo: "Photo"
+        product_details:
+          id: "ID"
+          title: "Product Details"
+          quantity: "Quantity"
+          price: "Price"
+          color: "Color"
+          size: "Size"
+        new: "New Product"
       update:
         order:
           status:
@@ -102,6 +121,9 @@ en:
         name: "Product Name"
         brand: "Brand"
         category: "Category"
+      status:
+        active: "Active"
+        inactive: "Inactive"
     login:
       title: "Login"
       email_label: "Email"

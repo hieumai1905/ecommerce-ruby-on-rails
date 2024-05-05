@@ -1,0 +1,28 @@
+<%= form_with(model: product, local: true) do |form| %>
+  <div class="form-group">
+    <%= form.label :product_name, t("pages.admin.product_management.name"), class: "mt-2 font-weight-bold" %>
+    <%= form.text_field :product_name, class: "form-control" %>
+
+    <%= form.label :brand, t("pages.admin.product_management.brand"), class: "mt-2 font-weight-bold" %>
+    <%= form.text_field :brand, class: "form-control" %>
+
+    <%= form.label :category, t("pages.admin.product_management.category"), class: "mt-2 font-weight-bold" %>
+    <%= form.text_field :category, class: "form-control" %>
+
+    <%= form.label :description, t("pages.admin.product_management.description"), class: "mt-2 font-weight-bold" %>
+    <%= form.text_area :description, rows: 3, class: "form-control" %>
+
+    <%= form.label :photos, t("pages.admin.product_management.photo"), class: "mt-2 font-weight-bold" %>
+    <%= file_field_tag "photos[]", multiple: true, class: "form-control", accept: "image/*" %>
+    <div id="preview-container" class="mt-3">
+      <% product.product_photos.each do |photo| %>
+        <%= image_tag photo.photo_path, height: 100, title: product.product_name %>
+      <% end %>
+    </div>
+
+    <%= form.label :status, t("pages.admin.user_management.status"), class: "mt-2 font-weight-bold" %>
+    <%= form.select :status, options_for_select(product_status_update, product.status), {}, class: "form-control" %>
+  </div>
+
+  <%= form.submit t("pages.admin.product_management.update_title"), class: "btn btn-primary" %>
+<% end %>

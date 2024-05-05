@@ -1,0 +1,20 @@
+<button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#product-<%= product.id %>">
+  <i class="fa fa-info" aria-hidden="true"></i>
+</button>
+<div class="modal" id="product-<%= product.id %>">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title font-weight-bold"><%= t("pages.admin.product_management.title") %></h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <%= render partial: "admin/products/form", locals: {product: product} %>
+        <br>
+        <div class="continue__btn">
+          <%= link_to t("pages.admin.product_management.all"), shop_path %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

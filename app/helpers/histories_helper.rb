@@ -43,7 +43,7 @@ module HistoriesHelper
   end
 
   def additional_buttons item
-    if item.status == Settings.order.status.pending
+    if item.status.pending?
       [cancel_button(item)]
     else
       [repurchase_button(item)]

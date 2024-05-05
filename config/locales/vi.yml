@@ -43,8 +43,27 @@ vi:
         id: "Mã đơn hàng"
         user_id: "Mã người dùng"
         total: "Tổng tiền"
+      product_management:
+        all: "Tất cả chi tiết sản phẩm"
+        update_title: "Cập nhật sản phẩm"
+        detail_product_items: "Danhs sách chi tiết sản phẩm"
+        title: "Quản lý sản phẩm"
+        id: "Mã sản phẩm"
+        name: "Tên sản phẩm"
+        category: "Danh mục"
+        brand: "Thương hiệu"
         created_date: "Ngày tạo"
         updated_date: "Cập nhật cuối"
+        description: "Mô tả"
+        photo: "Ảnh"
+        product_details:
+          id: "ID"
+          title: "Chi tiết sản phẩm"
+          quantity: "Số lượng"
+          price: "Giá"
+          color: "Màu sắc"
+          size: "Kích cỡ"
+        new: "Thêm sản phẩm mới"
       update:
         order:
           status:
@@ -102,6 +121,9 @@ vi:
         name: "Tên sản phẩm"
         brand: "Thương hiệu"
         category: "Danh mục"
+      status:
+        active: "Đang bán"
+        inactive: "Ngừng bán"
     login:
       title: "Đăng nhập"
       email_label: "Email"

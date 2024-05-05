@@ -1,0 +1,10 @@
+<tr>
+  <td><%= product.product_name %></td>
+  <td class="text-center"><%= product.brand %></td>
+  <td class="text-center"><%= product.category %></td>
+  <td class="text-center"><%= product_status_label(product.status) %></td>
+  <td><%= product.description %></td>
+  <td class="cart__close">
+    <%= render partial: "admin/products/product_item", locals: { product: product } %>
+  </td>
+</tr>

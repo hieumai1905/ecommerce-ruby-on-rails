@@ -4137,13 +4137,14 @@ ol {
   }
 }
 
-.text-decoration-underline{
+.text-decoration-underline {
   text-decoration: underline;
 }
 
 .modal-dialog {
   max-width: 800px;
 }
+
 .modal-content {
   max-width: 900px;
   margin: 0 auto;
@@ -4152,7 +4153,13 @@ ol {
 .modal-dialog-custom {
   max-width: 600px;
 }
+
 .modal-content-custom {
   max-width: 700px;
   margin: 0 auto;
+}
+
+.preview-image {
+  max-width: 70px;
+  max-height: 60px;
 }

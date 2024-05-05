@@ -1,5 +1,6 @@
 pagy:
   product:
+    page_8: 8
     per_page: 9
   bill:
     per_page: 5
@@ -57,6 +58,10 @@ product:
   increment:
     condition_true: "true"
     condition_false: "false"
+  status:
+    all: "all"
+    active: "active"
+    inactive: "inactive"
 account:
   role:
     title: "role"

@@ -18,6 +18,8 @@ Rails.application.routes.draw do
       resources :users, only: %i(index update)
 
       resources :orders, only: %i(index update delete)
+
+      resources :products, only: %i(index new)
     end
 
     get "/carts", to: "carts#index"

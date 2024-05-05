@@ -24,6 +24,7 @@ class Product < ApplicationRecord
       all
     end
   }
+  scope :by_status, ->(status){where status: status if status.present?}
   scope :with_total_quantity, (lambda do
     select("products.*, COALESCE(SUM(bill_details.quantity),
                                   0) AS total_quantity")
@@ -50,4 +51,6 @@ class Product < ApplicationRecord
       .order("total_quantity DESC")
       .limit(Settings.product.product_top)
   end)
+
+  enum status: {active: 1, inactive: 0}
 end

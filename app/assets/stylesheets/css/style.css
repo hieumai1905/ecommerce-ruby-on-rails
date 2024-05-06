@@ -4163,3 +4163,13 @@ ol {
   max-width: 70px;
   max-height: 60px;
 }
+
+.preview-image-large {
+  max-width: 150px;
+  max-height: 150px;
+}
+
+.preview-image-medium {
+  max-width: 100px;
+  max-height: 100px;
+}

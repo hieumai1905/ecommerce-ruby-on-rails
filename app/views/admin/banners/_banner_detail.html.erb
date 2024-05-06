@@ -1,0 +1,20 @@
+<button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#banner-<%= banner.id %>">
+  <i class="fa fa-info" aria-hidden="true"></i>
+</button>
+<%= link_to admin_banner_path(banner), class: "btn btn-danger btn-sm", data: { "turbo-method": :delete,
+                                                                               turbo_confirm: t("pages.admin.banner_management.destroy.destroy_confirm") } do %>
+  <i class="fa fa-trash-o text-white" aria-hidden="true"></i>
+<% end %>
+<div class="modal" id="banner-<%= banner.id %>">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title font-weight-bold"><%= t("pages.admin.banner_management.title") %></h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <%= render partial: "admin/banners/form", locals: { banner: banner } %>
+      </div>
+    </div>
+  </div>
+</div>

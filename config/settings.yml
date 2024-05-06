@@ -8,6 +8,8 @@ pagy:
     per_page: 8
   user:
     per_page: 8
+  banner:
+    per_page: 5
 col:
   col_4: 4
   col_3: 3
@@ -67,3 +69,8 @@ account:
     title: "role"
   status:
     title: "status"
+banner:
+  state:
+    active: "active"
+    inactive: "inactive"
+    all: "all"

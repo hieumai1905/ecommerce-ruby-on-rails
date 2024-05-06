@@ -10,10 +10,6 @@ module HistoriesHelper
     safe_join buttons
   end
 
-  def formatted_created_at created_at
-    created_at.strftime "%H:%M %d-%m-%Y"
-  end
-
   def render_bill_info
     return if @current_bill.blank?
 

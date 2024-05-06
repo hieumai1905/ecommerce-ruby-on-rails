@@ -1,0 +1,9 @@
+<tr>
+  <td><%= banner.description %></td>
+  <td><%= banner.start_at %></td>
+  <td><%= banner.finish_at %></td>
+  <td class="text-center"><%= image_tag(banner.photo_path.url, class: "preview-image-medium") %></td>
+  <td class="cart__close">
+    <%= render partial: "admin/banners/banner_detail", locals: { banner: banner } %>
+  </td>
+</tr>

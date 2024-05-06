@@ -64,6 +64,34 @@ vi:
           color: "Màu sắc"
           size: "Kích cỡ"
         new: "Thêm sản phẩm mới"
+      banner_management:
+        title: "Quản lý banner"
+        id: "Mã banner"
+        start_date: "Ngày bắt đầu"
+        finish_date: "Ngày kết thúc"
+        description: "Mô tả"
+        banner: "Hình ảnh"
+        new: "Thêm banner mới"
+        banner_not_found: "Không tìm thấy banner"
+        state:
+          title: "Trạng thái"
+          active: "Hoạt động"
+          inactive: "Đã ngừng hoạt động"
+          all: "Tất cả"
+        update:
+          title: "Cập nhật banner"
+          success: "Cập nhật banner thành công"
+          fail: "Cập nhật banner thất bại"
+        create:
+          success: "Tạo banner thành công"
+          fail: "Tạo banner thất bại"
+        destroy:
+          success: "Xoá banner thành công"
+          fail: "Xoá banner thất bại"
+          destroy_confirm: "Bạn có chắc chắn muốn xoá banner này không?"
+        error_date: "Ngày bắt đầu phải nhỏ hơn ngày kết thúc"
+        valid_date: "Ngày kết thúc phải lớn hơn ngày hiện tại"
+        banner_blank: "Banner không được để trống"
       update:
         order:
           status:

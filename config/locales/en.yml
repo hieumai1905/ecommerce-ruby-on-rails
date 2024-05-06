@@ -64,6 +64,34 @@ en:
           color: "Color"
           size: "Size"
         new: "New Product"
+      banner_management:
+        title: "Banners Management"
+        id: "Banner ID"
+        start_date: "Start Date"
+        finish_date: "Finish Date"
+        description: "Description"
+        banner: "Banner"
+        new: "New Banner"
+        banner_not_found: "Banner not found"
+        state:
+          title: "State"
+          active: "Active"
+          inactive: "Inactive"
+          all: "All"
+        update:
+          title: "Update Banner"
+          success: "Update banner successfully"
+          fail: "Update banner failed"
+        create:
+          success: "Create banner successfully"
+          fail: "Create banner failed"
+        destroy:
+          success: "Delete banner successfully"
+          fail: "Delete banner failed"
+          destroy_confirm: "Are you sure you want to delete this banner?"
+        error_date: "Start date must be less than finish date"
+        valid_date: "Finish date must be greater than current date"
+        banner_blank: "Banner photo is required"
       update:
         order:
           status:

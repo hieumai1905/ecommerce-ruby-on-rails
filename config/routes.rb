@@ -20,6 +20,8 @@ Rails.application.routes.draw do
       resources :orders, only: %i(index update delete)
 
       resources :products, only: %i(index new)
+
+      resources :banners, only: %i(index create update destroy)
     end
 
     get "/carts", to: "carts#index"

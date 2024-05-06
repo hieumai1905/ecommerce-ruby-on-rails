@@ -1,0 +1,22 @@
+<%= form_with(model: [:admin, banner], local: true) do |form| %>
+  <div class="form-group">
+    <%= form.label :description, t("pages.admin.banner_management.description"), class: "mt-2 font-weight-bold" %>
+    <%= form.text_area :description, class: "form-control" %>
+
+    <%= form.label :start_at, t("pages.admin.banner_management.start_date"), class: "mt-2 font-weight-bold" %>
+    <%= form.date_field :start_at, value: banner.start_at, class: "form-control" %>
+
+    <%= form.label :finish_at, t("pages.admin.banner_management.finish_date"), class: "mt-2 font-weight-bold" %>
+    <%= form.date_field :finish_at, value: banner.finish_at, class: "form-control" %>
+
+    <%= form.label :photo_path, t("pages.admin.banner_management.banner"), class: "mt-2 font-weight-bold" %>
+    <%= form.file_field :photo_path, accept: "image/*", class: "form-control banner-input" %>
+    <div class="preview-container-banner mt-3">
+      <% if banner.photo_path.present? %>
+        <%= image_tag(banner.photo_path.url, class: "current-banner-image preview-image-large") %>
+      <% end %>
+    </div>
+  </div>
+  <%= form.submit t("pages.admin.banner_management.update.title"), class: "btn btn-primary" %>
+<% end %>
+<%= javascript_include_tag 'custom/banners/import_image', 'data-turbolinks-track': 'reload' %>

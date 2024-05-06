@@ -18,7 +18,7 @@
                   <p class="font-weight-bold"><%= item.account.name %></p> &emsp;
                   <p><%= render_rating item.rating %></p>
                 </div>
-                <p class="mx-3"><%= formatted_created_at item.created_at %></p>
+                <p class="mx-3"><%= format_date_time item.created_at %></p>
               </div>
               <div class="d-flex ms-2 ml-1">
                 <i class="text-secondary"><%= item.product.product_name %></i> &ensp;

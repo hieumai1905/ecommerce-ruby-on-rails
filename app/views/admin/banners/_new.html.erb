@@ -1,0 +1,16 @@
+<button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#new-banner" class="m-2">
+  <%= t("pages.admin.banner_management.new") %>
+</button>
+<div class="modal" id="new-banner">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title font-weight-bold"><%= t("pages.admin.banner_management.new") %></h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <%= render partial: "admin/banners/form", locals: { banner: @banner } %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -18,6 +18,8 @@ gem "sprockets-rails"
 
 gem "mysql2", "~> 0.5"
 
+gem "carrierwave"
+
 gem "bootstrap-sass"
 
 gem "puma", ">= 5.0"

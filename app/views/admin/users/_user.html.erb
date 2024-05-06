@@ -5,8 +5,8 @@
   <td><%= user.phone %></td>
   <td><%= render_user_role_link(user) %></td>
   <td><%= render_user_status_link(user) %></td>
-  <td><%= formatted_created_at(user.created_at) %></td>
-  <td><%= formatted_created_at(user.updated_at) %></td>
+  <td><%= format_date_time(user.created_at) %></td>
+  <td><%= format_date_time(user.updated_at) %></td>
   <td class="cart__close">
     <%= delete_user_link user %>
   </td>
